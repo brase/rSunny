@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2010-05-26
+  csvData: MyText
+  sum_unit0: 1.5
+  sum_unit1: 1.5
+
+two:
+  date: 2010-05-26
+  csvData: MyText
+  sum_unit0: 1.5
+  sum_unit1: 1.5

@@ -1,0 +1,17 @@
+require 'date' 
+
+filename = 'sunnybeam.csv'
+ file = File.new(filename, 'r')
+   
+ text = file.read
+    
+ text.split("\n") do |row,i|
+	puts row
+	puts i
+     	if(i == 9) then 
+	  columns = row.split(";")        
+	  dateTime = Date.strptime(columns[0])        
+	  puts dateTime	  
+	  puts columns[0]
+	end
+ end   

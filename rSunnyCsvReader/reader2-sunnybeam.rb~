@@ -1,0 +1,21 @@
+require 'csv'
+
+text = File.open('sunnybeam.csv','r')
+
+CSV.parse(text,:col_sep => ";") do |row|
+ p row
+end
+
+class rSunnyCsvReader
+
+	def initialize(csv)
+		CSV.parse(csv,:col_sep => ";") do |row|
+			p row
+		end
+	end
+
+	def self.load(csv)
+		self.new csv
+	end
+
+end

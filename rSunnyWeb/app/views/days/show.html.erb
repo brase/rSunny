@@ -1,0 +1,14 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Datetime:</b>
+  <%= @day.datetime %>
+</p>
+<p>
+	<b>csvData</b>
+	<%= @day.csvData %>
+</p>
+
+
+<%= link_to 'Edit', edit_day_path(@day) %> |
+<%= link_to 'Back', days_path %>

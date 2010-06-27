@@ -1,0 +1,23 @@
+<p>
+  <b>Date:</b>
+  <%=h @month.date %>
+</p>
+
+<p>
+  <b>Csvdata:</b>
+  <%=h @month.csvData %>
+</p>
+
+<p>
+  <b>Sum unit0:</b>
+  <%=h @month.sum_unit0 %>
+</p>
+
+<p>
+  <b>Sum unit1:</b>
+  <%=h @month.sum_unit1 %>
+</p>
+
+
+<%= link_to 'Edit', edit_month_path(@month) %> |
+<%= link_to 'Back', months_path %>

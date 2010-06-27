@@ -1,0 +1,20 @@
+<%= form_for(@day,:html => { :multipart => true}) do |f| %>
+  <% if @day.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
+    <ul>
+    <% @day.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :csvData %><br/>
+    <%= f.file_field :csvData %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
