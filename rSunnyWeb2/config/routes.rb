@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :years
+
   map.resources :months
 
   map.resources :days

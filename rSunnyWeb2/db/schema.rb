@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805080140) do
+ActiveRecord::Schema.define(:version => 20100805191516) do
 
   create_table "days", :force => true do |t|
     t.date     "date"
@@ -24,8 +24,19 @@ ActiveRecord::Schema.define(:version => 20100805080140) do
   add_index "days", ["month_id"], :name => "index_days_on_month_id"
 
   create_table "months", :force => true do |t|
-    t.integer  "year"
     t.integer  "month"
+    t.float    "sum_unit0"
+    t.float    "sum_unit1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "year_number"
+    t.integer  "year_id"
+  end
+
+  add_index "months", ["year_id"], :name => "index_months_on_year_id"
+
+  create_table "years", :force => true do |t|
+    t.integer  "year"
     t.float    "sum_unit0"
     t.float    "sum_unit1"
     t.datetime "created_at"

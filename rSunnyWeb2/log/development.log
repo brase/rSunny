@@ -19769,3 +19769,3052 @@ Processing MonthsController#index (for 127.0.0.1 at 2010-08-05 10:43:48) [GET]
 Rendering template within layouts/months
 Rendering months/index
 Completed in 17ms (View: 6, DB: 1) | 200 OK [http://localhost/months]
+
+
+Processing MonthsController#index (for 127.0.0.1 at 2010-08-05 12:56:45) [GET]
+  [4;36;1mMonth Load (0.9ms)[0m   [0;1mSELECT * FROM "months" [0m
+Rendering template within layouts/months
+Rendering months/index
+Completed in 101ms (View: 50, DB: 1) | 200 OK [http://localhost/months]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 12:56:49) [GET]
+  [4;35;1mDay Load (0.6ms)[0m   [0mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 231ms (View: 24, DB: 1) | 200 OK [http://localhost/days]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: table "days" already exists: CREATE TABLE "days" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "csvData" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (127.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (74.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "days" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "csvData" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100521105107')[0m
+Migrating to AddSumsToDay (20100521122616)
+  [4;36;1mSQL (13.6ms)[0m   [0;1mALTER TABLE "days" ADD "sum_unit0" float[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "days" ADD "sum_unit1" float[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100521122616')[0m
+Migrating to CreateMonths (20100526102925)
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100526102925')[0m
+Migrating to AddMonthIdToDay (20100805080140)
+  [4;35;1mSQL (0.7ms)[0m   [0mALTER TABLE "days" ADD "month_id" integer[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_days_on_month_id" ON "days" ("month_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805080140')[0m
+Migrating to CreateYears (20100805191013)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "years" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805191013')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("days")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("years")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+Migrating to AddSumsToDay (20100521122616)
+Migrating to CreateMonths (20100526102925)
+Migrating to AddMonthIdToDay (20100805080140)
+Migrating to CreateYears (20100805191013)
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mALTER TABLE "months" ADD "year_id" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_months_on_year_id" ON "months" ("year_id")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805191516')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("days")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_months_on_year_id')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("years")[0m
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:29:02) [GET]
+  [4;36;1mDay Load (0.7ms)[0m   [0;1mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 381ms (View: 81, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing MonthsController#index (for 127.0.0.1 at 2010-08-05 21:29:07) [GET]
+  [4;35;1mMonth Load (1.0ms)[0m   [0mSELECT * FROM "months" [0m
+Rendering template within layouts/months
+Rendering months/index
+Completed in 83ms (View: 38, DB: 1) | 200 OK [http://localhost/months]
+
+
+Processing YearsController#index (for 127.0.0.1 at 2010-08-05 21:29:11) [GET]
+  [4;36;1mYear Load (0.7ms)[0m   [0;1mSELECT * FROM "years" [0m
+Rendering template within layouts/years
+Rendering years/index
+Completed in 36ms (View: 23, DB: 1) | 200 OK [http://localhost/years]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 21:29:16) [GET]
+
+ActionController::RoutingError (No route matches "/daysyears" with {:method=>:get}):
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendering rescues/layout (not_found)
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:29:20) [GET]
+  [4;35;1mDay Load (0.6ms)[0m   [0mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 44ms (View: 8, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing DaysController#new (for 127.0.0.1 at 2010-08-05 21:29:22) [GET]
+Rendering template within layouts/days
+Rendering days/new
+Completed in 37ms (View: 12, DB: 0) | 200 OK [http://localhost/days/new]
+
+
+Processing DaysController#create (for 127.0.0.1 at 2010-08-05 21:29:42) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "csvData"=>#<File:/tmp/RackMultipart20100805-31819-9vf4p5-0>, "commit"=>"Upload"}
+  [4;36;1mMonth Load (0.3ms)[0m   [0;1mSELECT * FROM "months" WHERE (year = 2010 and month = 4) LIMIT 1[0m
+
+ActiveRecord::AssociationTypeMismatch (Year(#81482688) expected, got Fixnum(#81121824)):
+  app/controllers/days_controller.rb:48:in `create'
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (80.9ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mDROP INDEX "index_months_on_year_id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TEMPORARY TABLE "altered_months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime, "year_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mDROP TABLE "months"[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("altered_months")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mDROP TABLE "altered_months"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20100805191516'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("days")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("months")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("years")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+Migrating to AddSumsToDay (20100521122616)
+Migrating to CreateMonths (20100526102925)
+Migrating to AddMonthIdToDay (20100805080140)
+Migrating to CreateYears (20100805191013)
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TEMPORARY TABLE "altered_months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "year" integer, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("months")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mDROP TABLE "months"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_months")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_months"[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mALTER TABLE "months" ADD "year_id" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_months_on_year_id" ON "months" ("year_id")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100805191516')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("days")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_months_on_year_id')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("years")[0m
+
+
+Processing DaysController#create (for 127.0.0.1 at 2010-08-05 21:34:38) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "csvData"=>#<File:/tmp/RackMultipart20100805-32081-ayde7i-0>, "commit"=>"Upload"}
+  [4;36;1mMonth Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: year: SELECT * FROM "months" WHERE (year = 2010 and month = 4) LIMIT 1[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: year: SELECT * FROM "months" WHERE (year = 2010 and month = 4)  LIMIT 1):
+  app/controllers/days_controller.rb:45:in `create'
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (94.7ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP INDEX "index_months_on_year_id"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TEMPORARY TABLE "altered_months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime, "year_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "months"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("altered_months")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mDROP TABLE "altered_months"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mALTER TABLE "months" ADD "year" integer[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20100805191516'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("days")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("months")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("years")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+Migrating to AddSumsToDay (20100521122616)
+Migrating to CreateMonths (20100526102925)
+Migrating to AddMonthIdToDay (20100805080140)
+Migrating to CreateYears (20100805191013)
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TEMPORARY TABLE "altered_months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime, "year" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("months")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mDROP TABLE "months"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_months")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_months"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDays (20100521105107)
+Migrating to AddSumsToDay (20100521122616)
+Migrating to CreateMonths (20100526102925)
+Migrating to AddMonthIdToDay (20100805080140)
+Migrating to CreateYears (20100805191013)
+Migrating to AddYearIdToMonth (20100805191516)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TEMPORARY TABLE "altered_months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime, "year" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("months")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mDROP TABLE "months"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "months" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "month" integer, "sum_unit0" float, "sum_unit1" float, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("altered_months")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mDROP TABLE "altered_months"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "months" ADD "year_number" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "months" ADD "year_id" integer[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_months_on_year_id" ON "months" ("year_id")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100805191516')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("days")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_days_on_month_id')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("months")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_months_on_year_id')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("years")[0m
+
+
+Processing DaysController#create (for 127.0.0.1 at 2010-08-05 21:39:05) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "csvData"=>#<File:/tmp/RackMultipart20100805-32252-13w0bm9-0>, "commit"=>"Upload"}
+  [4;36;1mMonth Load (0.3ms)[0m   [0;1mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+
+ActiveRecord::AssociationTypeMismatch (Year(#89442878) expected, got Fixnum(#76784148)):
+  app/controllers/days_controller.rb:48:in `create'
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (76.6ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DaysController#create (for 127.0.0.1 at 2010-08-05 21:41:23) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "csvData"=>#<File:/tmp/RackMultipart20100805-32252-1uteb0o-0>, "commit"=>"Upload"}
+  [4;35;1mMonth Load (0.3ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mYear Load (0.2ms)[0m   [0;1mSELECT * FROM "years" WHERE (year = 2010) LIMIT 1[0m
+  [4;35;1mYear Create (0.5ms)[0m   [0mINSERT INTO "years" ("year", "sum_unit0", "sum_unit1", "created_at", "updated_at") VALUES(NULL, NULL, NULL, '2010-08-05 19:41:23', '2010-08-05 19:41:23')[0m
+  [4;36;1mMonth Create (0.4ms)[0m   [0;1mINSERT INTO "months" ("month", "sum_unit0", "sum_unit1", "created_at", "updated_at", "year_number", "year_id") VALUES(4, NULL, NULL, '2010-08-05 19:41:24', '2010-08-05 19:41:24', 2010, 1)[0m
+  [4;35;1mDay Create (0.7ms)[0m   [0mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-14', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+14-04-2010 00:00;545,614;
+14-04-2010 00:10;545,614;
+14-04-2010 00:20;545,614;
+14-04-2010 00:30;545,614;
+14-04-2010 00:40;545,614;
+14-04-2010 00:50;545,614;
+14-04-2010 01:00;545,614;
+14-04-2010 01:10;545,614;
+14-04-2010 01:20;545,614;
+14-04-2010 01:30;545,614;
+14-04-2010 01:40;545,614;
+14-04-2010 01:50;545,614;
+14-04-2010 02:00;545,614;
+14-04-2010 02:10;545,614;
+14-04-2010 02:20;545,614;
+14-04-2010 02:30;545,614;
+14-04-2010 02:40;545,614;
+14-04-2010 02:50;545,614;
+14-04-2010 03:00;545,614;
+14-04-2010 03:10;545,614;
+14-04-2010 03:20;545,614;
+14-04-2010 03:30;545,614;
+14-04-2010 03:40;545,614;
+14-04-2010 03:50;545,614;
+14-04-2010 04:00;545,614;
+14-04-2010 04:10;545,614;
+14-04-2010 04:20;545,614;
+14-04-2010 04:30;545,614;
+14-04-2010 04:40;545,614;
+14-04-2010 04:50;545,614;
+14-04-2010 05:00;545,614;
+14-04-2010 05:10;545,614;
+14-04-2010 05:20;545,614;
+14-04-2010 05:30;545,614;
+14-04-2010 05:40;545,614;
+14-04-2010 05:50;545,614;
+14-04-2010 06:00;545,614;
+14-04-2010 06:10;545,614;
+14-04-2010 06:20;545,614;
+14-04-2010 06:30;545,614;
+14-04-2010 06:40;545,614;210,800
+14-04-2010 06:50;545,614;210,800
+14-04-2010 07:00;545,617;210,800
+14-04-2010 07:10;545,624;210,800
+14-04-2010 07:20;545,631;210,800
+14-04-2010 07:30;545,645;210,800
+14-04-2010 07:40;545,664;210,800
+14-04-2010 07:50;545,683;210,800
+14-04-2010 08:00;545,706;210,800
+14-04-2010 08:10;545,738;210,800
+14-04-2010 08:20;545,785;210,817
+14-04-2010 08:30;545,858;210,841
+14-04-2010 08:40;546,023;210,902
+14-04-2010 08:50;546,161;210,954
+14-04-2010 09:00;546,447;211,063
+14-04-2010 09:10;546,728;211,163
+14-04-2010 09:20;546,925;211,246
+14-04-2010 09:30;547,297;211,382
+14-04-2010 09:40;547,696;211,535
+14-04-2010 09:50;548,119;211,696
+14-04-2010 10:00;548,554;211,864
+14-04-2010 10:10;549,038;212,049
+14-04-2010 10:20;549,545;212,247
+14-04-2010 10:30;550,073;212,449
+14-04-2010 10:40;550,638;212,666
+14-04-2010 10:50;551,229;212,892
+14-04-2010 11:00;551,818;213,121
+14-04-2010 11:10;552,415;213,351
+14-04-2010 11:20;553,051;213,599
+14-04-2010 11:30;553,698;213,847
+14-04-2010 11:40;554,347;214,101
+14-04-2010 11:50;554,995;214,350
+14-04-2010 12:00;555,530;214,566
+14-04-2010 12:10;556,105;214,777
+14-04-2010 12:20;556,737;215,029
+14-04-2010 12:30;557,098;215,187
+14-04-2010 12:40;557,254;215,261
+14-04-2010 12:50;557,319;215,284
+14-04-2010 13:00;557,412;215,320
+14-04-2010 13:10;557,508;215,354
+14-04-2010 13:20;557,640;215,401
+14-04-2010 13:30;557,834;215,478
+14-04-2010 13:40;557,909;215,513
+14-04-2010 13:50;557,965;215,532
+14-04-2010 14:00;558,030;215,559
+14-04-2010 14:10;558,072;215,575
+14-04-2010 14:20;558,122;215,593
+14-04-2010 14:30;558,173;215,614
+14-04-2010 14:40;558,254;215,639
+14-04-2010 14:50;558,403;215,696
+14-04-2010 15:00;558,466;215,725
+14-04-2010 15:10;558,535;215,750
+14-04-2010 15:20;558,594;215,774
+14-04-2010 15:30;558,630;215,788
+14-04-2010 15:40;558,673;215,805
+14-04-2010 15:50;558,731;215,824
+14-04-2010 16:00;558,810;215,854
+14-04-2010 16:10;559,017;215,921
+14-04-2010 16:20;559,164;215,990
+14-04-2010 16:30;559,216;216,011
+14-04-2010 16:40;559,276;216,035
+14-04-2010 16:50;559,297;216,045
+14-04-2010 17:00;559,308;216,045
+14-04-2010 17:10;559,326;216,045
+14-04-2010 17:20;559,342;216,045
+14-04-2010 17:30;559,367;216,049
+14-04-2010 17:40;559,384;216,055
+14-04-2010 17:50;559,403;216,055
+14-04-2010 18:00;559,423;216,055
+14-04-2010 18:10;559,448;216,055
+14-04-2010 18:20;559,450;216,055
+14-04-2010 18:30;559,456;216,055
+14-04-2010 18:40;559,466;216,055
+14-04-2010 18:50;559,483;216,055
+14-04-2010 19:00;559,496;216,055
+14-04-2010 19:10;559,508;216,055
+14-04-2010 19:20;559,513;216,055
+14-04-2010 19:30;559,517;216,055
+14-04-2010 19:40;559,519;216,055
+14-04-2010 19:50;559,520;216,055
+14-04-2010 20:00;559,520;
+14-04-2010 20:10;559,520;
+14-04-2010 20:20;559,520;
+14-04-2010 20:30;559,520;
+14-04-2010 20:40;559,520;
+14-04-2010 20:50;559,520;
+14-04-2010 21:00;559,520;
+14-04-2010 21:10;559,520;
+14-04-2010 21:20;559,520;
+14-04-2010 21:30;559,520;
+14-04-2010 21:40;559,520;
+14-04-2010 21:50;559,520;
+14-04-2010 22:00;559,520;
+14-04-2010 22:10;559,520;
+14-04-2010 22:20;559,520;
+14-04-2010 22:30;559,520;
+14-04-2010 22:40;559,520;
+14-04-2010 22:50;559,520;
+14-04-2010 23:00;559,520;
+14-04-2010 23:10;559,520;
+14-04-2010 23:20;559,520;
+14-04-2010 23:30;559,520;
+14-04-2010 23:40;559,520;
+14-04-2010 23:50;559,520;
+', '2010-08-05 19:41:24', '2010-08-05 19:41:24', 13.9059999999999, 5.255, 1)[0m
+Redirected to http://localhost:3000/days/1
+Completed in 383ms (DB: 2) | 302 Found [http://localhost/days]
+
+
+Processing DaysController#show (for 127.0.0.1 at 2010-08-05 21:41:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDay Load (0.3ms)[0m   [0;1mSELECT * FROM "days" WHERE ("days"."id" = 1) [0m
+Rendering template within layouts/days
+Rendering days/show
+Completed in 106ms (View: 80, DB: 0) | 200 OK [http://localhost/days/1]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:41:26) [GET]
+  [4;35;1mDay Load (0.7ms)[0m   [0mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 41ms (View: 16, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing MonthsController#index (for 127.0.0.1 at 2010-08-05 21:41:32) [GET]
+  [4;36;1mMonth Load (0.7ms)[0m   [0;1mSELECT * FROM "months" [0m
+Rendering template within layouts/months
+Rendering months/index
+  [4;35;1mYear Load (0.3ms)[0m   [0mSELECT * FROM "years" WHERE ("years"."id" = 1) [0m
+Completed in 38ms (View: 32, DB: 1) | 200 OK [http://localhost/months]
+
+
+Processing YearsController#index (for 127.0.0.1 at 2010-08-05 21:41:40) [GET]
+  [4;36;1mYear Load (0.7ms)[0m   [0;1mSELECT * FROM "years" [0m
+Rendering template within layouts/years
+Rendering years/index
+Completed in 103ms (View: 96, DB: 1) | 200 OK [http://localhost/years]
+
+
+Processing YearsController#index (for 127.0.0.1 at 2010-08-05 21:42:50) [GET]
+  [4;35;1mYear Load (0.7ms)[0m   [0mSELECT * FROM "years" [0m
+Rendering template within layouts/years
+Rendering years/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/years]
+
+
+Processing YearsController#show (for 127.0.0.1 at 2010-08-05 21:42:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mYear Load (0.2ms)[0m   [0;1mSELECT * FROM "years" WHERE ("years"."id" = 1) [0m
+Rendering template within layouts/years
+Rendering years/show
+Completed in 20ms (View: 13, DB: 0) | 200 OK [http://localhost/years/1]
+
+
+Processing YearsController#index (for 127.0.0.1 at 2010-08-05 21:42:58) [GET]
+  [4;35;1mYear Load (0.6ms)[0m   [0mSELECT * FROM "years" [0m
+Rendering template within layouts/years
+Rendering years/index
+Completed in 11ms (View: 5, DB: 1) | 200 OK [http://localhost/years]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-05 21:46:33) [GET]
+
+SyntaxError (/home/brase/code/rSunny/rSunnyWeb2/app/controllers/upload_controller.rb:38: syntax error, unexpected tIDENTIFIER, expecting keyword_end):
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (79.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UploadController#index (for 127.0.0.1 at 2010-08-05 21:47:19) [GET]
+Rendering upload/index
+Completed in 39ms (View: 37, DB: 0) | 200 OK [http://localhost/upload]
+
+
+Processing UploadController#index (for 127.0.0.1 at 2010-08-05 21:48:25) [GET]
+Rendering upload/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/upload]
+
+
+Processing UploadController#uploadFile (for 127.0.0.1 at 2010-08-05 21:48:30) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "zipFile"=>#<File:/tmp/RackMultipart20100805-32252-pktkt0-0>, "commit"=>"Upload"}
+
+Errno::ENOENT (No such file or directory - public/data/2c1bf241-4f9c-4bad-bbba-9dd90744bb3e):
+  app/controllers/upload_controller.rb:15:in `mkdir'
+  app/controllers/upload_controller.rb:15:in `loadFromZip'
+  app/controllers/upload_controller.rb:7:in `uploadFile'
+  <internal:prelude>:8:in `synchronize'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (70.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UploadController#uploadFile (for 127.0.0.1 at 2010-08-05 21:49:14) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "zipFile"=>#<File:/tmp/RackMultipart20100805-32252-4926b8-0>, "commit"=>"Upload"}
+csvFilesPath
+public/data/1a86159c-0ca6-46bf-8a35-5b6624c99b88/*.CSV
+Redirected to http://localhost:3000/days
+Completed in 55ms (DB: 0) | 302 Found [http://localhost/upload/uploadFile]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:49:14) [GET]
+  [4;36;1mDay Load (0.8ms)[0m   [0;1mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 43ms (View: 8, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:49:27) [GET]
+  [4;35;1mDay Load (0.7ms)[0m   [0mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 67ms (View: 6, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing UploadController#index (for 127.0.0.1 at 2010-08-05 21:50:54) [GET]
+Rendering upload/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/upload]
+
+
+Processing UploadController#uploadFile (for 127.0.0.1 at 2010-08-05 21:50:59) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "zipFile"=>#<File:/tmp/RackMultipart20100805-32252-i5x3he-0>, "commit"=>"Upload"}
+csvFilesPath
+public/data/c0f3e75a-7df1-4581-9f2d-d73579458513/*.CSV
+Redirected to http://localhost:3000/days
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/upload/uploadFile]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:50:59) [GET]
+  [4;36;1mDay Load (0.7ms)[0m   [0;1mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 65ms (View: 6, DB: 1) | 200 OK [http://localhost/days]
+
+
+Processing UploadController#index (for 127.0.0.1 at 2010-08-05 21:51:49) [GET]
+Rendering upload/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/upload]
+
+
+Processing UploadController#uploadFile (for 127.0.0.1 at 2010-08-05 21:51:57) [POST]
+  Parameters: {"authenticity_token"=>"g2mO5xDFGvhf1Y8L9p7mZ7fMDHkkseReMOh8+Vnl51s=", "zipFile"=>#<File:/tmp/RackMultipart20100805-32252-dc6r3g-0>, "commit"=>"Upload"}
+csvFilesPath
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/*.CSV
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-05.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.5ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-05', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+05-04-2010 00:00;371,681;
+05-04-2010 00:10;371,681;
+05-04-2010 00:20;371,681;
+05-04-2010 00:30;371,681;
+05-04-2010 00:40;371,681;
+05-04-2010 00:50;371,681;
+05-04-2010 01:00;371,681;
+05-04-2010 01:10;371,681;
+05-04-2010 01:20;371,681;
+05-04-2010 01:30;371,681;
+05-04-2010 01:40;371,681;
+05-04-2010 01:50;371,681;
+05-04-2010 02:00;371,681;
+05-04-2010 02:10;371,681;
+05-04-2010 02:20;371,681;
+05-04-2010 02:30;371,681;
+05-04-2010 02:40;371,681;
+05-04-2010 02:50;371,681;
+05-04-2010 03:00;371,681;
+05-04-2010 03:10;371,681;
+05-04-2010 03:20;371,681;
+05-04-2010 03:30;371,681;
+05-04-2010 03:40;371,681;
+05-04-2010 03:50;371,681;
+05-04-2010 04:00;371,681;
+05-04-2010 04:10;371,681;
+05-04-2010 04:20;371,681;
+05-04-2010 04:30;371,681;
+05-04-2010 04:40;371,681;
+05-04-2010 04:50;371,681;
+05-04-2010 05:00;371,681;
+05-04-2010 05:10;371,681;
+05-04-2010 05:20;371,681;
+05-04-2010 05:30;371,681;
+05-04-2010 05:40;371,681;
+05-04-2010 05:50;371,681;
+05-04-2010 06:00;371,681;
+05-04-2010 06:10;371,681;
+05-04-2010 06:20;371,681;
+05-04-2010 06:30;371,681;
+05-04-2010 06:40;371,681;
+05-04-2010 06:50;371,681;
+05-04-2010 07:00;371,681;
+05-04-2010 07:10;371,681;143,468
+05-04-2010 07:20;371,685;143,468
+05-04-2010 07:30;371,697;143,468
+05-04-2010 07:40;371,703;143,468
+05-04-2010 07:50;371,707;143,468
+05-04-2010 08:00;371,717;143,468
+05-04-2010 08:10;371,744;143,474
+05-04-2010 08:20;371,775;143,486
+05-04-2010 08:30;371,810;143,499
+05-04-2010 08:40;371,869;143,523
+05-04-2010 08:50;371,948;143,553
+05-04-2010 09:00;372,010;143,575
+05-04-2010 09:10;372,073;143,599
+05-04-2010 09:20;372,152;143,630
+05-04-2010 09:30;372,282;143,683
+05-04-2010 09:40;372,473;143,756
+05-04-2010 09:50;372,609;143,806
+05-04-2010 10:00;372,740;143,860
+05-04-2010 10:10;372,911;143,921
+05-04-2010 10:20;373,025;143,965
+05-04-2010 10:30;373,209;144,036
+05-04-2010 10:40;373,345;144,088
+05-04-2010 10:50;373,487;144,145
+05-04-2010 11:00;373,731;144,242
+05-04-2010 11:10;373,930;144,316
+05-04-2010 11:20;374,134;144,396
+05-04-2010 11:30;374,398;144,495
+05-04-2010 11:40;374,542;144,551
+05-04-2010 11:50;374,701;144,614
+05-04-2010 12:00;374,887;144,682
+05-04-2010 12:10;374,994;144,724
+05-04-2010 12:20;375,167;144,792
+05-04-2010 12:30;375,365;144,873
+05-04-2010 12:40;375,565;144,944
+05-04-2010 12:50;375,695;144,996
+05-04-2010 13:00;375,845;145,053
+05-04-2010 13:10;375,985;145,107
+05-04-2010 13:20;376,155;145,173
+05-04-2010 13:30;376,335;145,247
+05-04-2010 13:40;376,614;145,356
+05-04-2010 13:50;376,961;145,491
+05-04-2010 14:00;377,238;145,596
+05-04-2010 14:10;377,483;145,693
+05-04-2010 14:20;377,813;145,823
+05-04-2010 14:30;378,192;145,969
+05-04-2010 14:40;378,469;146,072
+05-04-2010 14:50;378,708;146,164
+05-04-2010 15:00;378,927;146,248
+05-04-2010 15:10;379,088;146,309
+05-04-2010 15:20;379,253;146,373
+05-04-2010 15:30;379,457;146,453
+05-04-2010 15:40;379,643;146,525
+05-04-2010 15:50;379,819;146,589
+05-04-2010 16:00;379,930;146,633
+05-04-2010 16:10;380,407;146,830
+05-04-2010 16:20;380,925;147,031
+05-04-2010 16:30;381,199;147,124
+05-04-2010 16:40;381,336;147,177
+05-04-2010 16:50;381,456;147,222
+05-04-2010 17:00;381,556;147,260
+05-04-2010 17:10;381,628;147,286
+05-04-2010 17:20;381,692;147,310
+05-04-2010 17:30;381,783;147,347
+05-04-2010 17:40;381,871;147,379
+05-04-2010 17:50;381,937;147,405
+05-04-2010 18:00;382,003;147,429
+05-04-2010 18:10;382,042;147,443
+05-04-2010 18:20;382,068;147,452
+05-04-2010 18:30;382,095;147,462
+05-04-2010 18:40;382,134;147,477
+05-04-2010 18:50;382,156;147,485
+05-04-2010 19:00;382,169;147,488
+05-04-2010 19:10;382,176;147,488
+05-04-2010 19:20;382,177;147,488
+05-04-2010 19:30;382,177;147,488
+05-04-2010 19:40;382,177;147,488
+05-04-2010 19:50;382,177;
+05-04-2010 20:00;382,177;
+05-04-2010 20:10;382,177;
+05-04-2010 20:20;382,177;
+05-04-2010 20:30;382,177;
+05-04-2010 20:40;382,177;
+05-04-2010 20:50;382,177;
+05-04-2010 21:00;382,177;
+05-04-2010 21:10;382,177;
+05-04-2010 21:20;382,177;
+05-04-2010 21:30;382,177;
+05-04-2010 21:40;382,177;
+05-04-2010 21:50;382,177;
+05-04-2010 22:00;382,177;
+05-04-2010 22:10;382,177;
+05-04-2010 22:20;382,177;
+05-04-2010 22:30;382,177;
+05-04-2010 22:40;382,177;
+05-04-2010 22:50;382,177;
+05-04-2010 23:00;382,177;
+05-04-2010 23:10;382,177;
+05-04-2010 23:20;382,177;
+05-04-2010 23:30;382,177;
+05-04-2010 23:40;382,177;
+05-04-2010 23:50;382,177;
+', '2010-08-05 19:51:57', '2010-08-05 19:51:57', 10.496, 4.02000000000001, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-09.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-09', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+09-04-2010 00:00;469,715;
+09-04-2010 00:10;469,715;
+09-04-2010 00:20;469,715;
+09-04-2010 00:30;469,715;
+09-04-2010 00:40;469,715;
+09-04-2010 00:50;469,715;
+09-04-2010 01:00;469,715;
+09-04-2010 01:10;469,715;
+09-04-2010 01:20;469,715;
+09-04-2010 01:30;469,715;
+09-04-2010 01:40;469,715;
+09-04-2010 01:50;469,715;
+09-04-2010 02:00;469,715;
+09-04-2010 02:10;469,715;
+09-04-2010 02:20;469,715;
+09-04-2010 02:30;469,715;
+09-04-2010 02:40;469,715;
+09-04-2010 02:50;469,715;
+09-04-2010 03:00;469,715;
+09-04-2010 03:10;469,715;
+09-04-2010 03:20;469,715;
+09-04-2010 03:30;469,715;
+09-04-2010 03:40;469,715;
+09-04-2010 03:50;469,715;
+09-04-2010 04:00;469,715;
+09-04-2010 04:10;469,715;
+09-04-2010 04:20;469,715;
+09-04-2010 04:30;469,715;
+09-04-2010 04:40;469,715;
+09-04-2010 04:50;469,715;
+09-04-2010 05:00;469,715;
+09-04-2010 05:10;469,715;
+09-04-2010 05:20;469,715;
+09-04-2010 05:30;469,715;
+09-04-2010 05:40;469,715;
+09-04-2010 05:50;469,715;
+09-04-2010 06:00;469,715;
+09-04-2010 06:10;469,715;
+09-04-2010 06:20;469,715;
+09-04-2010 06:30;469,715;
+09-04-2010 06:40;469,715;181,616
+09-04-2010 06:50;469,717;181,616
+09-04-2010 07:00;469,727;181,616
+09-04-2010 07:10;469,750;181,616
+09-04-2010 07:20;469,789;181,633
+09-04-2010 07:30;469,818;181,643
+09-04-2010 07:40;469,848;181,654
+09-04-2010 07:50;469,880;181,666
+09-04-2010 08:00;469,917;181,681
+09-04-2010 08:10;469,963;181,698
+09-04-2010 08:20;470,015;181,718
+09-04-2010 08:30;470,073;181,739
+09-04-2010 08:40;470,137;181,764
+09-04-2010 08:50;470,222;181,798
+09-04-2010 09:00;470,304;181,827
+09-04-2010 09:10;470,371;181,853
+09-04-2010 09:20;470,487;181,901
+09-04-2010 09:30;470,630;181,955
+09-04-2010 09:40;470,778;182,013
+09-04-2010 09:50;470,948;182,081
+09-04-2010 10:00;471,133;182,153
+09-04-2010 10:10;471,618;182,343
+09-04-2010 10:20;471,875;182,434
+09-04-2010 10:30;472,104;182,520
+09-04-2010 10:40;472,232;182,572
+09-04-2010 10:50;472,399;182,636
+09-04-2010 11:00;472,605;182,713
+09-04-2010 11:10;472,944;182,885
+09-04-2010 11:20;473,384;183,041
+09-04-2010 11:30;474,129;183,313
+09-04-2010 11:40;474,409;183,454
+09-04-2010 11:50;474,838;183,588
+09-04-2010 12:00;475,044;183,665
+09-04-2010 12:10;475,223;183,736
+09-04-2010 12:20;475,352;183,781
+09-04-2010 12:30;475,508;183,843
+09-04-2010 12:40;475,603;183,879
+09-04-2010 12:50;475,799;183,963
+09-04-2010 13:00;476,271;184,174
+09-04-2010 13:10;476,637;184,300
+09-04-2010 13:20;476,971;184,464
+09-04-2010 13:30;477,354;184,582
+09-04-2010 13:40;477,619;184,683
+09-04-2010 13:50;478,114;184,890
+09-04-2010 14:00;478,336;184,971
+09-04-2010 14:10;478,698;185,156
+09-04-2010 14:20;479,094;185,276
+09-04-2010 14:30;479,169;185,303
+09-04-2010 14:40;479,275;185,349
+09-04-2010 14:50;479,458;185,420
+09-04-2010 15:00;479,650;185,495
+09-04-2010 15:10;479,980;185,651
+09-04-2010 15:20;480,636;185,887
+09-04-2010 15:30;480,930;185,991
+09-04-2010 15:40;481,420;186,199
+09-04-2010 15:50;481,873;186,356
+09-04-2010 16:00;482,190;186,477
+09-04-2010 16:10;482,314;186,524
+09-04-2010 16:20;482,536;186,610
+09-04-2010 16:30;482,651;186,653
+09-04-2010 16:40;482,841;186,731
+09-04-2010 16:50;483,086;186,825
+09-04-2010 17:00;483,279;186,907
+09-04-2010 17:10;483,517;186,986
+09-04-2010 17:20;483,629;187,031
+09-04-2010 17:30;483,721;187,064
+09-04-2010 17:40;483,790;187,090
+09-04-2010 17:50;483,885;187,128
+09-04-2010 18:00;483,978;187,162
+09-04-2010 18:10;484,046;187,187
+09-04-2010 18:20;484,103;187,208
+09-04-2010 18:30;484,155;187,228
+09-04-2010 18:40;484,197;187,241
+09-04-2010 18:50;484,231;187,253
+09-04-2010 19:00;484,253;187,261
+09-04-2010 19:10;484,270;187,267
+09-04-2010 19:20;484,282;187,268
+09-04-2010 19:30;484,285;187,268
+09-04-2010 19:40;484,287;187,268
+09-04-2010 19:50;484,287;187,268
+09-04-2010 20:00;484,287;
+09-04-2010 20:10;484,287;
+09-04-2010 20:20;484,287;
+09-04-2010 20:30;484,287;
+09-04-2010 20:40;484,287;
+09-04-2010 20:50;484,287;
+09-04-2010 21:00;484,287;
+09-04-2010 21:10;484,287;
+09-04-2010 21:20;484,287;
+09-04-2010 21:30;484,287;
+09-04-2010 21:40;484,287;
+09-04-2010 21:50;484,287;
+09-04-2010 22:00;484,287;
+09-04-2010 22:10;484,287;
+09-04-2010 22:20;484,287;
+09-04-2010 22:30;484,287;
+09-04-2010 22:40;484,287;
+09-04-2010 22:50;484,287;
+09-04-2010 23:00;484,287;
+09-04-2010 23:10;484,287;
+09-04-2010 23:20;484,287;
+09-04-2010 23:30;484,287;
+09-04-2010 23:40;484,287;
+09-04-2010 23:50;484,287;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 14.572, 5.65199999999999, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-10.CSV
+  [4;35;1mMonth Load (0.7ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-10', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+10-04-2010 00:00;484,287;
+10-04-2010 00:10;484,287;
+10-04-2010 00:20;484,287;
+10-04-2010 00:30;484,287;
+10-04-2010 00:40;484,287;
+10-04-2010 00:50;484,287;
+10-04-2010 01:00;484,287;
+10-04-2010 01:10;484,287;
+10-04-2010 01:20;484,287;
+10-04-2010 01:30;484,287;
+10-04-2010 01:40;484,287;
+10-04-2010 01:50;484,287;
+10-04-2010 02:00;484,287;
+10-04-2010 02:10;484,287;
+10-04-2010 02:20;484,287;
+10-04-2010 02:30;484,287;
+10-04-2010 02:40;484,287;
+10-04-2010 02:50;484,287;
+10-04-2010 03:00;484,287;
+10-04-2010 03:10;484,287;
+10-04-2010 03:20;484,287;
+10-04-2010 03:30;484,287;
+10-04-2010 03:40;484,287;
+10-04-2010 03:50;484,287;
+10-04-2010 04:00;484,287;
+10-04-2010 04:10;484,287;
+10-04-2010 04:20;484,287;
+10-04-2010 04:30;484,287;
+10-04-2010 04:40;484,287;
+10-04-2010 04:50;484,287;
+10-04-2010 05:00;484,287;
+10-04-2010 05:10;484,287;
+10-04-2010 05:20;484,287;
+10-04-2010 05:30;484,287;
+10-04-2010 05:40;484,287;
+10-04-2010 05:50;484,287;
+10-04-2010 06:00;484,287;
+10-04-2010 06:10;484,287;
+10-04-2010 06:20;484,287;
+10-04-2010 06:30;484,287;
+10-04-2010 06:40;484,287;
+10-04-2010 06:50;484,287;
+10-04-2010 07:00;484,287;
+10-04-2010 07:10;484,287;187,268
+10-04-2010 07:20;484,287;187,268
+10-04-2010 07:30;484,287;187,268
+10-04-2010 07:40;484,294;187,268
+10-04-2010 07:50;484,304;187,268
+10-04-2010 08:00;484,313;187,268
+10-04-2010 08:10;484,324;187,268
+10-04-2010 08:20;484,336;187,268
+10-04-2010 08:30;484,355;187,268
+10-04-2010 08:40;484,383;187,271
+10-04-2010 08:50;484,412;187,281
+10-04-2010 09:00;484,448;187,295
+10-04-2010 09:10;484,496;187,312
+10-04-2010 09:20;484,564;187,337
+10-04-2010 09:30;484,663;187,375
+10-04-2010 09:40;484,748;187,407
+10-04-2010 09:50;484,828;187,436
+10-04-2010 10:00;484,938;187,478
+10-04-2010 10:10;485,118;187,548
+10-04-2010 10:20;485,229;187,590
+10-04-2010 10:30;485,331;187,629
+10-04-2010 10:40;485,438;187,669
+10-04-2010 10:50;485,717;187,776
+10-04-2010 11:00;485,836;187,822
+10-04-2010 11:10;485,919;187,854
+10-04-2010 11:20;485,988;187,876
+10-04-2010 11:30;486,127;187,928
+10-04-2010 11:40;486,374;188,022
+10-04-2010 11:50;486,674;188,139
+10-04-2010 12:00;486,930;188,236
+10-04-2010 12:10;487,111;188,310
+10-04-2010 12:20;487,274;188,373
+10-04-2010 12:30;487,499;188,454
+10-04-2010 12:40;488,013;188,658
+10-04-2010 12:50;488,278;188,762
+10-04-2010 13:00;488,740;188,949
+10-04-2010 13:10;489,005;189,055
+10-04-2010 13:20;489,291;189,165
+10-04-2010 13:30;489,666;189,317
+10-04-2010 13:40;489,834;189,382
+10-04-2010 13:50;490,009;189,449
+10-04-2010 14:00;490,261;189,544
+10-04-2010 14:10;490,575;189,667
+10-04-2010 14:20;490,867;189,781
+10-04-2010 14:30;491,156;189,887
+10-04-2010 14:40;491,623;190,076
+10-04-2010 14:50;492,284;190,324
+10-04-2010 15:00;492,761;190,509
+10-04-2010 15:10;493,374;190,749
+10-04-2010 15:20;493,859;190,906
+10-04-2010 15:30;494,542;191,170
+10-04-2010 15:40;495,220;191,433
+10-04-2010 15:50;495,808;191,625
+10-04-2010 16:00;496,391;191,853
+10-04-2010 16:10;496,734;191,984
+10-04-2010 16:20;497,213;192,172
+10-04-2010 16:30;497,547;192,309
+10-04-2010 16:40;497,827;192,410
+10-04-2010 16:50;498,041;192,485
+10-04-2010 17:00;498,357;192,616
+10-04-2010 17:10;498,407;192,637
+10-04-2010 17:20;498,434;192,637
+10-04-2010 17:30;498,634;192,701
+10-04-2010 17:40;498,865;192,793
+10-04-2010 17:50;498,929;192,820
+10-04-2010 18:00;498,967;192,835
+10-04-2010 18:10;498,996;192,846
+10-04-2010 18:20;499,028;192,857
+10-04-2010 18:30;499,066;192,872
+10-04-2010 18:40;499,106;192,887
+10-04-2010 18:50;499,137;192,898
+10-04-2010 19:00;499,153;192,904
+10-04-2010 19:10;499,162;192,904
+10-04-2010 19:20;499,167;192,904
+10-04-2010 19:30;499,174;192,904
+10-04-2010 19:40;499,176;192,904
+10-04-2010 19:50;499,176;192,904
+10-04-2010 20:00;499,176;
+10-04-2010 20:10;499,176;
+10-04-2010 20:20;499,176;
+10-04-2010 20:30;499,176;
+10-04-2010 20:40;499,176;
+10-04-2010 20:50;499,176;
+10-04-2010 21:00;499,176;
+10-04-2010 21:10;499,176;
+10-04-2010 21:20;499,176;
+10-04-2010 21:30;499,176;
+10-04-2010 21:40;499,176;
+10-04-2010 21:50;499,176;
+10-04-2010 22:00;499,176;
+10-04-2010 22:10;499,176;
+10-04-2010 22:20;499,176;
+10-04-2010 22:30;499,176;
+10-04-2010 22:40;499,176;
+10-04-2010 22:50;499,176;
+10-04-2010 23:00;499,176;
+10-04-2010 23:10;499,176;
+10-04-2010 23:20;499,176;
+10-04-2010 23:30;499,176;
+10-04-2010 23:40;499,176;
+10-04-2010 23:50;499,176;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 14.889, 5.636, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-03.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-03', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+03-04-2010 00:00;340,957;
+03-04-2010 00:10;340,957;
+03-04-2010 00:20;340,957;
+03-04-2010 00:30;340,957;
+03-04-2010 00:40;340,957;
+03-04-2010 00:50;340,957;
+03-04-2010 01:00;340,957;
+03-04-2010 01:10;340,957;
+03-04-2010 01:20;340,957;
+03-04-2010 01:30;340,957;
+03-04-2010 01:40;340,957;
+03-04-2010 01:50;340,957;
+03-04-2010 02:00;340,957;
+03-04-2010 02:10;340,957;
+03-04-2010 02:20;340,957;
+03-04-2010 02:30;340,957;
+03-04-2010 02:40;340,957;
+03-04-2010 02:50;340,957;
+03-04-2010 03:00;340,957;
+03-04-2010 03:10;340,957;
+03-04-2010 03:20;340,957;
+03-04-2010 03:30;340,957;
+03-04-2010 03:40;340,957;
+03-04-2010 03:50;340,957;
+03-04-2010 04:00;340,957;
+03-04-2010 04:10;340,957;
+03-04-2010 04:20;340,957;
+03-04-2010 04:30;340,957;
+03-04-2010 04:40;340,957;
+03-04-2010 04:50;340,957;
+03-04-2010 05:00;340,957;
+03-04-2010 05:10;340,957;
+03-04-2010 05:20;340,957;
+03-04-2010 05:30;340,957;
+03-04-2010 05:40;340,957;
+03-04-2010 05:50;340,957;
+03-04-2010 06:00;340,957;
+03-04-2010 06:10;340,957;
+03-04-2010 06:20;340,957;
+03-04-2010 06:30;340,957;
+03-04-2010 06:40;340,957;
+03-04-2010 06:50;340,958;131,573
+03-04-2010 07:00;340,969;131,573
+03-04-2010 07:10;340,981;131,573
+03-04-2010 07:20;340,991;131,573
+03-04-2010 07:30;341,001;131,573
+03-04-2010 07:40;341,009;131,573
+03-04-2010 07:50;341,024;131,573
+03-04-2010 08:00;341,043;131,573
+03-04-2010 08:10;341,062;131,573
+03-04-2010 08:20;341,104;131,578
+03-04-2010 08:30;341,121;131,581
+03-04-2010 08:40;341,143;131,585
+03-04-2010 08:50;341,211;131,611
+03-04-2010 09:00;341,302;131,644
+03-04-2010 09:10;341,638;131,774
+03-04-2010 09:20;341,884;131,868
+03-04-2010 09:30;342,045;131,931
+03-04-2010 09:40;342,350;132,054
+03-04-2010 09:50;342,734;132,201
+03-04-2010 10:00;342,966;132,287
+03-04-2010 10:10;343,089;132,334
+03-04-2010 10:20;343,212;132,381
+03-04-2010 10:30;343,350;132,434
+03-04-2010 10:40;343,496;132,490
+03-04-2010 10:50;343,651;132,551
+03-04-2010 11:00;343,953;132,668
+03-04-2010 11:10;344,670;132,948
+03-04-2010 11:20;345,378;133,222
+03-04-2010 11:30;346,094;133,499
+03-04-2010 11:40;346,842;133,791
+03-04-2010 11:50;347,622;134,095
+03-04-2010 12:00;348,335;134,382
+03-04-2010 12:10;348,712;134,531
+03-04-2010 12:20;349,374;134,802
+03-04-2010 12:30;350,112;135,094
+03-04-2010 12:40;350,451;135,230
+03-04-2010 12:50;350,823;135,378
+03-04-2010 13:00;351,292;135,567
+03-04-2010 13:10;352,007;135,861
+03-04-2010 13:20;352,552;136,083
+03-04-2010 13:30;353,309;136,387
+03-04-2010 13:40;353,598;136,500
+03-04-2010 13:50;353,898;136,618
+03-04-2010 14:00;354,237;136,752
+03-04-2010 14:10;354,565;136,882
+03-04-2010 14:20;355,145;137,110
+03-04-2010 14:30;355,302;137,170
+03-04-2010 14:40;355,527;137,257
+03-04-2010 14:50;355,814;137,369
+03-04-2010 15:00;355,972;137,431
+03-04-2010 15:10;356,107;137,484
+03-04-2010 15:20;356,247;137,538
+03-04-2010 15:30;356,458;137,620
+03-04-2010 15:40;356,637;137,689
+03-04-2010 15:50;356,892;137,787
+03-04-2010 16:00;357,280;137,938
+03-04-2010 16:10;357,536;138,040
+03-04-2010 16:20;357,665;138,090
+03-04-2010 16:30;357,814;138,148
+03-04-2010 16:40;357,976;138,211
+03-04-2010 16:50;358,198;138,296
+03-04-2010 17:00;358,311;138,341
+03-04-2010 17:10;358,404;138,376
+03-04-2010 17:20;358,529;138,424
+03-04-2010 17:30;358,670;138,472
+03-04-2010 17:40;358,772;138,511
+03-04-2010 17:50;358,868;138,548
+03-04-2010 18:00;358,964;138,585
+03-04-2010 18:10;359,040;138,614
+03-04-2010 18:20;359,097;138,636
+03-04-2010 18:30;359,141;138,652
+03-04-2010 18:40;359,168;138,662
+03-04-2010 18:50;359,189;138,670
+03-04-2010 19:00;359,209;138,677
+03-04-2010 19:10;359,223;138,681
+03-04-2010 19:20;359,228;138,681
+03-04-2010 19:30;359,228;138,681
+03-04-2010 19:40;359,228;138,681
+03-04-2010 19:50;359,228;
+03-04-2010 20:00;359,228;
+03-04-2010 20:10;359,228;
+03-04-2010 20:20;359,228;
+03-04-2010 20:30;359,228;
+03-04-2010 20:40;359,228;
+03-04-2010 20:50;359,228;
+03-04-2010 21:00;359,228;
+03-04-2010 21:10;359,228;
+03-04-2010 21:20;359,228;
+03-04-2010 21:30;359,228;
+03-04-2010 21:40;359,228;
+03-04-2010 21:50;359,228;
+03-04-2010 22:00;359,228;
+03-04-2010 22:10;359,228;
+03-04-2010 22:20;359,228;
+03-04-2010 22:30;359,228;
+03-04-2010 22:40;359,228;
+03-04-2010 22:50;359,228;
+03-04-2010 23:00;359,228;
+03-04-2010 23:10;359,228;
+03-04-2010 23:20;359,228;
+03-04-2010 23:30;359,228;
+03-04-2010 23:40;359,228;
+03-04-2010 23:50;359,228;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 18.271, 7.108, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-04.CSV
+  [4;35;1mMonth Load (0.5ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-04', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+04-04-2010 00:00;359,228;
+04-04-2010 00:10;359,228;
+04-04-2010 00:20;359,228;
+04-04-2010 00:30;359,228;
+04-04-2010 00:40;359,228;
+04-04-2010 00:50;359,228;
+04-04-2010 01:00;359,228;
+04-04-2010 01:10;359,228;
+04-04-2010 01:20;359,228;
+04-04-2010 01:30;359,228;
+04-04-2010 01:40;359,228;
+04-04-2010 01:50;359,228;
+04-04-2010 02:00;359,228;
+04-04-2010 02:10;359,228;
+04-04-2010 02:20;359,228;
+04-04-2010 02:30;359,228;
+04-04-2010 02:40;359,228;
+04-04-2010 02:50;359,228;
+04-04-2010 03:00;359,228;
+04-04-2010 03:10;359,228;
+04-04-2010 03:20;359,228;
+04-04-2010 03:30;359,228;
+04-04-2010 03:40;359,228;
+04-04-2010 03:50;359,228;
+04-04-2010 04:00;359,228;
+04-04-2010 04:10;359,228;
+04-04-2010 04:20;359,228;
+04-04-2010 04:30;359,228;
+04-04-2010 04:40;359,228;
+04-04-2010 04:50;359,228;
+04-04-2010 05:00;359,228;
+04-04-2010 05:10;359,228;
+04-04-2010 05:20;359,228;
+04-04-2010 05:30;359,228;
+04-04-2010 05:40;359,228;
+04-04-2010 05:50;359,228;
+04-04-2010 06:00;359,228;
+04-04-2010 06:10;359,228;
+04-04-2010 06:20;359,228;
+04-04-2010 06:30;359,228;
+04-04-2010 06:40;359,228;
+04-04-2010 06:50;359,228;
+04-04-2010 07:00;359,228;
+04-04-2010 07:10;359,228;138,681
+04-04-2010 07:20;359,231;138,681
+04-04-2010 07:30;359,241;138,681
+04-04-2010 07:40;359,258;138,681
+04-04-2010 07:50;359,284;138,681
+04-04-2010 08:00;359,323;138,693
+04-04-2010 08:10;359,375;138,713
+04-04-2010 08:20;359,437;138,735
+04-04-2010 08:30;359,507;138,760
+04-04-2010 08:40;359,591;138,791
+04-04-2010 08:50;359,708;138,831
+04-04-2010 09:00;359,826;138,880
+04-04-2010 09:10;359,909;138,911
+04-04-2010 09:20;360,006;138,947
+04-04-2010 09:30;360,119;138,989
+04-04-2010 09:40;360,242;139,035
+04-04-2010 09:50;360,380;139,087
+04-04-2010 10:00;360,534;139,144
+04-04-2010 10:10;360,730;139,216
+04-04-2010 10:20;360,935;139,295
+04-04-2010 10:30;361,139;139,376
+04-04-2010 10:40;361,310;139,443
+04-04-2010 10:50;361,485;139,509
+04-04-2010 11:00;361,700;139,587
+04-04-2010 11:10;361,962;139,682
+04-04-2010 11:20;362,270;139,795
+04-04-2010 11:30;362,634;139,949
+04-04-2010 11:40;362,859;140,039
+04-04-2010 11:50;363,048;140,112
+04-04-2010 12:00;363,317;140,222
+04-04-2010 12:10;363,478;140,287
+04-04-2010 12:20;363,584;140,331
+04-04-2010 12:30;363,684;140,374
+04-04-2010 12:40;363,802;140,409
+04-04-2010 12:50;363,939;140,469
+04-04-2010 13:00;364,021;140,502
+04-04-2010 13:10;364,099;140,533
+04-04-2010 13:20;364,310;140,599
+04-04-2010 13:30;364,527;140,685
+04-04-2010 13:40;364,806;140,787
+04-04-2010 13:50;365,179;140,934
+04-04-2010 14:00;365,481;141,033
+04-04-2010 14:10;366,118;141,286
+04-04-2010 14:20;366,234;141,364
+04-04-2010 14:30;366,408;141,424
+04-04-2010 14:40;366,719;141,518
+04-04-2010 14:50;367,091;141,677
+04-04-2010 15:00;367,430;141,828
+04-04-2010 15:10;367,592;141,883
+04-04-2010 15:20;367,862;141,990
+04-04-2010 15:30;367,997;142,050
+04-04-2010 15:40;368,314;142,160
+04-04-2010 15:50;368,578;142,269
+04-04-2010 16:00;368,779;142,348
+04-04-2010 16:10;368,980;142,429
+04-04-2010 16:20;369,146;142,494
+04-04-2010 16:30;369,302;142,557
+04-04-2010 16:40;369,455;142,616
+04-04-2010 16:50;369,595;142,671
+04-04-2010 17:00;369,767;142,735
+04-04-2010 17:10;369,951;142,805
+04-04-2010 17:20;370,168;142,875
+04-04-2010 17:30;370,551;143,020
+04-04-2010 17:40;370,868;143,149
+04-04-2010 17:50;371,119;143,244
+04-04-2010 18:00;371,321;143,324
+04-04-2010 18:10;371,474;143,384
+04-04-2010 18:20;371,578;143,428
+04-04-2010 18:30;371,601;143,442
+04-04-2010 18:40;371,624;143,451
+04-04-2010 18:50;371,640;143,457
+04-04-2010 19:00;371,654;143,461
+04-04-2010 19:10;371,671;143,467
+04-04-2010 19:20;371,678;143,468
+04-04-2010 19:30;371,681;143,468
+04-04-2010 19:40;371,681;143,468
+04-04-2010 19:50;371,681;143,468
+04-04-2010 20:00;371,681;
+04-04-2010 20:10;371,681;
+04-04-2010 20:20;371,681;
+04-04-2010 20:30;371,681;
+04-04-2010 20:40;371,681;
+04-04-2010 20:50;371,681;
+04-04-2010 21:00;371,681;
+04-04-2010 21:10;371,681;
+04-04-2010 21:20;371,681;
+04-04-2010 21:30;371,681;
+04-04-2010 21:40;371,681;
+04-04-2010 21:50;371,681;
+04-04-2010 22:00;371,681;
+04-04-2010 22:10;371,681;
+04-04-2010 22:20;371,681;
+04-04-2010 22:30;371,681;
+04-04-2010 22:40;371,681;
+04-04-2010 22:50;371,681;
+04-04-2010 23:00;371,681;
+04-04-2010 23:10;371,681;
+04-04-2010 23:20;371,681;
+04-04-2010 23:30;371,681;
+04-04-2010 23:40;371,681;
+04-04-2010 23:50;371,681;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 12.453, 4.78699999999998, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-15.CSV
+  [4;35;1mMonth Load (6.3ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.5ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-15', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+15-04-2010 00:00;559,520;
+15-04-2010 00:10;559,520;
+15-04-2010 00:20;559,520;
+15-04-2010 00:30;559,520;
+15-04-2010 00:40;559,520;
+15-04-2010 00:50;559,520;
+15-04-2010 01:00;559,520;
+15-04-2010 01:10;559,520;
+15-04-2010 01:20;559,520;
+15-04-2010 01:30;559,520;
+15-04-2010 01:40;559,520;
+15-04-2010 01:50;559,520;
+15-04-2010 02:00;559,520;
+15-04-2010 02:10;559,520;
+15-04-2010 02:20;559,520;
+15-04-2010 02:30;559,520;
+15-04-2010 02:40;559,520;
+15-04-2010 02:50;559,520;
+15-04-2010 03:00;559,520;
+15-04-2010 03:10;559,520;
+15-04-2010 03:20;559,520;
+15-04-2010 03:30;559,520;
+15-04-2010 03:40;559,520;
+15-04-2010 03:50;559,520;
+15-04-2010 04:00;559,520;
+15-04-2010 04:10;559,520;
+15-04-2010 04:20;559,520;
+15-04-2010 04:30;559,520;
+15-04-2010 04:40;559,520;
+15-04-2010 04:50;559,520;
+15-04-2010 05:00;559,520;
+15-04-2010 05:10;559,520;
+15-04-2010 05:20;559,520;
+15-04-2010 05:30;559,520;
+15-04-2010 05:40;559,520;
+15-04-2010 05:50;559,520;
+15-04-2010 06:00;559,520;
+15-04-2010 06:10;559,520;
+15-04-2010 06:20;559,520;
+15-04-2010 06:30;559,520;
+15-04-2010 06:40;559,520;216,055
+15-04-2010 06:50;559,520;216,055
+15-04-2010 07:00;559,520;216,055
+15-04-2010 07:10;559,521;216,055
+15-04-2010 07:20;559,525;216,055
+15-04-2010 07:30;559,528;216,055
+15-04-2010 07:40;559,533;216,055
+15-04-2010 07:50;559,538;216,055
+15-04-2010 08:00;559,545;216,055
+15-04-2010 08:10;559,566;216,055
+15-04-2010 08:20;559,608;216,064
+15-04-2010 08:30;559,659;216,083
+15-04-2010 08:40;559,720;216,105
+15-04-2010 08:50;559,773;216,126
+15-04-2010 09:00;559,822;216,145
+15-04-2010 09:10;559,873;216,163
+15-04-2010 09:20;559,925;216,184
+15-04-2010 09:30;559,986;216,205
+15-04-2010 09:40;560,053;216,229
+15-04-2010 09:50;560,147;216,264
+15-04-2010 10:00;560,211;216,291
+15-04-2010 10:10;560,254;216,308
+15-04-2010 10:20;560,299;216,325
+15-04-2010 10:30;560,358;216,345
+15-04-2010 10:40;560,441;216,375
+15-04-2010 10:50;560,530;216,407
+15-04-2010 11:00;560,639;216,449
+15-04-2010 11:10;560,724;216,482
+15-04-2010 11:20;560,831;216,520
+15-04-2010 11:30;560,940;216,562
+15-04-2010 11:40;561,053;216,604
+15-04-2010 11:50;561,146;216,644
+15-04-2010 12:00;561,223;216,673
+15-04-2010 12:10;561,302;216,703
+15-04-2010 12:20;561,373;216,730
+15-04-2010 12:30;561,436;216,754
+15-04-2010 12:40;561,503;216,779
+15-04-2010 12:50;561,562;216,803
+15-04-2010 13:00;561,644;216,829
+15-04-2010 13:10;561,757;216,871
+15-04-2010 13:20;561,858;216,911
+15-04-2010 13:30;561,940;216,945
+15-04-2010 13:40;561,984;216,965
+15-04-2010 13:50;562,026;216,981
+15-04-2010 14:00;562,068;216,997
+15-04-2010 14:10;562,116;217,014
+15-04-2010 14:20;562,178;217,038
+15-04-2010 14:30;562,217;217,054
+15-04-2010 14:40;562,252;217,067
+15-04-2010 14:50;562,291;217,081
+15-04-2010 15:00;562,355;217,102
+15-04-2010 15:10;562,436;217,132
+15-04-2010 15:20;562,506;217,159
+15-04-2010 15:30;562,616;217,195
+15-04-2010 15:40;562,758;217,249
+15-04-2010 15:50;562,872;217,295
+15-04-2010 16:00;562,970;217,335
+15-04-2010 16:10;563,072;217,371
+15-04-2010 16:20;563,212;217,421
+15-04-2010 16:30;563,332;217,471
+15-04-2010 16:40;563,442;217,512
+15-04-2010 16:50;563,554;217,556
+15-04-2010 17:00;563,663;217,599
+15-04-2010 17:10;563,739;217,630
+15-04-2010 17:20;563,811;217,657
+15-04-2010 17:30;563,917;217,693
+15-04-2010 17:40;564,028;217,737
+15-04-2010 17:50;564,123;217,775
+15-04-2010 18:00;564,218;217,810
+15-04-2010 18:10;564,316;217,848
+15-04-2010 18:20;564,393;217,880
+15-04-2010 18:30;564,445;217,902
+15-04-2010 18:40;564,488;217,919
+15-04-2010 18:50;564,529;217,935
+15-04-2010 19:00;564,559;217,947
+15-04-2010 19:10;564,579;217,955
+15-04-2010 19:20;564,591;217,960
+15-04-2010 19:30;564,598;217,960
+15-04-2010 19:40;564,599;217,960
+15-04-2010 19:50;564,599;217,960
+15-04-2010 20:00;564,599;217,960
+15-04-2010 20:10;564,599;
+15-04-2010 20:20;564,599;
+15-04-2010 20:30;564,599;
+15-04-2010 20:40;564,599;
+15-04-2010 20:50;564,599;
+15-04-2010 21:00;564,599;
+15-04-2010 21:10;564,599;
+15-04-2010 21:20;564,599;
+15-04-2010 21:30;564,599;
+15-04-2010 21:40;564,599;
+15-04-2010 21:50;564,599;
+15-04-2010 22:00;564,599;
+15-04-2010 22:10;564,599;
+15-04-2010 22:20;564,599;
+15-04-2010 22:30;564,599;
+15-04-2010 22:40;564,599;
+15-04-2010 22:50;564,599;
+15-04-2010 23:00;564,599;
+15-04-2010 23:10;564,599;
+15-04-2010 23:20;564,599;
+15-04-2010 23:30;564,599;
+15-04-2010 23:40;564,599;
+15-04-2010 23:50;564,599;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 5.07900000000006, 1.905, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-01.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-01', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+01-04-2010 00:00;281,981;
+01-04-2010 00:10;281,981;
+01-04-2010 00:20;281,981;
+01-04-2010 00:30;281,981;
+01-04-2010 00:40;281,981;
+01-04-2010 00:50;281,981;
+01-04-2010 01:00;281,981;
+01-04-2010 01:10;281,981;
+01-04-2010 01:20;281,981;
+01-04-2010 01:30;281,981;
+01-04-2010 01:40;281,981;
+01-04-2010 01:50;281,981;
+01-04-2010 02:00;281,981;
+01-04-2010 02:10;281,981;
+01-04-2010 02:20;281,981;
+01-04-2010 02:30;281,981;
+01-04-2010 02:40;281,981;
+01-04-2010 02:50;281,981;
+01-04-2010 03:00;281,981;
+01-04-2010 03:10;281,981;
+01-04-2010 03:20;281,981;
+01-04-2010 03:30;281,981;
+01-04-2010 03:40;281,981;
+01-04-2010 03:50;281,981;
+01-04-2010 04:00;281,981;
+01-04-2010 04:10;281,981;
+01-04-2010 04:20;281,981;
+01-04-2010 04:30;281,981;
+01-04-2010 04:40;281,981;
+01-04-2010 04:50;281,981;
+01-04-2010 05:00;281,981;
+01-04-2010 05:10;281,981;
+01-04-2010 05:20;281,981;
+01-04-2010 05:30;281,981;
+01-04-2010 05:40;281,981;
+01-04-2010 05:50;281,981;
+01-04-2010 06:00;281,981;
+01-04-2010 06:10;281,981;
+01-04-2010 06:20;281,981;
+01-04-2010 06:30;281,981;
+01-04-2010 06:40;281,981;
+01-04-2010 06:50;281,981;
+01-04-2010 07:00;281,981;108,687
+01-04-2010 07:10;281,989;
+01-04-2010 07:20;282,008;108,687
+01-04-2010 07:30;282,042;108,697
+01-04-2010 07:40;282,096;108,722
+01-04-2010 07:50;282,185;108,754
+01-04-2010 08:00;282,286;108,787
+01-04-2010 08:10;282,353;
+01-04-2010 08:20;282,436;108,848
+01-04-2010 08:30;282,624;108,927
+01-04-2010 08:40;282,859;109,021
+01-04-2010 08:50;283,158;109,136
+01-04-2010 09:00;283,343;109,193
+01-04-2010 09:10;283,485;
+01-04-2010 09:20;283,708;109,337
+01-04-2010 09:30;283,863;109,407
+01-04-2010 09:40;284,264;109,578
+01-04-2010 09:50;284,739;109,758
+01-04-2010 10:00;285,192;109,936
+01-04-2010 10:10;285,672;
+01-04-2010 10:20;286,230;110,351
+01-04-2010 10:30;286,747;110,533
+01-04-2010 10:40;287,236;110,729
+01-04-2010 10:50;287,699;110,904
+01-04-2010 11:00;288,157;111,086
+01-04-2010 11:10;288,677;111,301
+01-04-2010 11:20;289,312;111,548
+01-04-2010 11:30;289,921;111,753
+01-04-2010 11:40;290,350;111,944
+01-04-2010 11:50;290,901;
+01-04-2010 12:00;291,521;112,401
+01-04-2010 12:10;292,166;112,655
+01-04-2010 12:20;292,816;112,900
+01-04-2010 12:30;293,470;
+01-04-2010 12:40;293,913;113,308
+01-04-2010 12:50;294,434;113,529
+01-04-2010 13:00;294,995;113,748
+01-04-2010 13:10;295,622;114,003
+01-04-2010 13:20;296,332;114,279
+01-04-2010 13:30;297,059;114,558
+01-04-2010 13:40;297,737;114,813
+01-04-2010 13:50;298,350;115,049
+01-04-2010 14:00;298,986;
+01-04-2010 14:10;299,589;
+01-04-2010 14:20;300,135;115,740
+01-04-2010 14:30;300,636;115,946
+01-04-2010 14:40;301,230;116,167
+01-04-2010 14:50;301,804;116,396
+01-04-2010 15:00;302,290;116,581
+01-04-2010 15:10;302,780;
+01-04-2010 15:20;303,160;116,911
+01-04-2010 15:30;303,580;117,082
+01-04-2010 15:40;303,969;117,230
+01-04-2010 15:50;304,368;117,380
+01-04-2010 16:00;304,684;117,506
+01-04-2010 16:10;305,027;117,638
+01-04-2010 16:20;305,329;
+01-04-2010 16:30;305,640;117,872
+01-04-2010 16:40;305,913;117,980
+01-04-2010 16:50;306,159;118,071
+01-04-2010 17:00;306,340;118,137
+01-04-2010 17:10;306,501;118,203
+01-04-2010 17:20;306,685;118,240
+01-04-2010 17:30;306,800;118,312
+01-04-2010 17:40;306,920;118,359
+01-04-2010 17:50;307,053;118,410
+01-04-2010 18:00;307,161;118,450
+01-04-2010 18:10;307,249;118,484
+01-04-2010 18:20;307,346;118,520
+01-04-2010 18:30;307,439;118,552
+01-04-2010 18:40;307,512;118,578
+01-04-2010 18:50;307,580;118,602
+01-04-2010 19:00;307,620;
+01-04-2010 19:10;307,648;118,625
+01-04-2010 19:20;307,665;118,629
+01-04-2010 19:30;307,671;118,629
+01-04-2010 19:40;307,671;118,629
+01-04-2010 19:50;307,671;
+01-04-2010 20:00;307,671;
+01-04-2010 20:10;307,671;
+01-04-2010 20:20;307,671;
+01-04-2010 20:30;307,671;
+01-04-2010 20:40;307,671;
+01-04-2010 20:50;307,671;
+01-04-2010 21:00;307,671;
+01-04-2010 21:10;307,671;
+01-04-2010 21:20;307,671;
+01-04-2010 21:30;307,671;
+01-04-2010 21:40;307,671;
+01-04-2010 21:50;307,671;
+01-04-2010 22:00;307,671;
+01-04-2010 22:10;307,671;
+01-04-2010 22:20;307,671;
+01-04-2010 22:30;307,671;
+01-04-2010 22:40;307,671;
+01-04-2010 22:50;307,671;
+01-04-2010 23:00;307,671;
+01-04-2010 23:10;307,671;
+01-04-2010 23:20;307,671;
+01-04-2010 23:30;307,671;
+01-04-2010 23:40;307,671;
+01-04-2010 23:50;307,671;
+', '2010-08-05 19:51:58', '2010-08-05 19:51:58', 25.69, 9.94200000000001, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-11.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-11', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+11-04-2010 00:00;499,176;
+11-04-2010 00:10;499,176;
+11-04-2010 00:20;499,176;
+11-04-2010 00:30;499,176;
+11-04-2010 00:40;499,176;
+11-04-2010 00:50;499,176;
+11-04-2010 01:00;499,176;
+11-04-2010 01:10;499,176;
+11-04-2010 01:20;499,176;
+11-04-2010 01:30;499,176;
+11-04-2010 01:40;499,176;
+11-04-2010 01:50;499,176;
+11-04-2010 02:00;499,176;
+11-04-2010 02:10;499,176;
+11-04-2010 02:20;499,176;
+11-04-2010 02:30;499,176;
+11-04-2010 02:40;499,176;
+11-04-2010 02:50;499,176;
+11-04-2010 03:00;499,176;
+11-04-2010 03:10;499,176;
+11-04-2010 03:20;499,176;
+11-04-2010 03:30;499,176;
+11-04-2010 03:40;499,176;
+11-04-2010 03:50;499,176;
+11-04-2010 04:00;499,176;
+11-04-2010 04:10;499,176;
+11-04-2010 04:20;499,176;
+11-04-2010 04:30;499,176;
+11-04-2010 04:40;499,176;
+11-04-2010 04:50;499,176;
+11-04-2010 05:00;499,176;
+11-04-2010 05:10;499,176;
+11-04-2010 05:20;499,176;
+11-04-2010 05:30;499,176;
+11-04-2010 05:40;499,176;
+11-04-2010 05:50;499,176;
+11-04-2010 06:00;499,176;
+11-04-2010 06:10;499,176;
+11-04-2010 06:20;499,176;
+11-04-2010 06:30;499,176;
+11-04-2010 06:40;499,176;192,904
+11-04-2010 06:50;499,176;192,904
+11-04-2010 07:00;499,176;192,904
+11-04-2010 07:10;499,176;192,904
+11-04-2010 07:20;499,179;192,904
+11-04-2010 07:30;499,184;192,904
+11-04-2010 07:40;499,192;192,904
+11-04-2010 07:50;499,202;192,904
+11-04-2010 08:00;499,212;192,904
+11-04-2010 08:10;499,223;192,904
+11-04-2010 08:20;499,255;192,913
+11-04-2010 08:30;499,285;192,923
+11-04-2010 08:40;499,317;192,935
+11-04-2010 08:50;499,341;192,944
+11-04-2010 09:00;499,363;192,952
+11-04-2010 09:10;499,387;192,961
+11-04-2010 09:20;499,443;192,981
+11-04-2010 09:30;499,536;193,016
+11-04-2010 09:40;499,683;193,072
+11-04-2010 09:50;499,804;193,119
+11-04-2010 10:00;499,932;193,167
+11-04-2010 10:10;500,085;193,225
+11-04-2010 10:20;500,198;193,269
+11-04-2010 10:30;500,297;193,305
+11-04-2010 10:40;500,640;193,437
+11-04-2010 10:50;501,020;193,585
+11-04-2010 11:00;501,293;193,687
+11-04-2010 11:10;501,662;193,834
+11-04-2010 11:20;501,844;193,904
+11-04-2010 11:30;502,172;194,038
+11-04-2010 11:40;502,260;194,072
+11-04-2010 11:50;502,347;194,105
+11-04-2010 12:00;502,482;194,156
+11-04-2010 12:10;502,599;194,202
+11-04-2010 12:20;502,723;194,249
+11-04-2010 12:30;502,895;194,314
+11-04-2010 12:40;503,010;194,359
+11-04-2010 12:50;503,163;194,417
+11-04-2010 13:00;503,338;194,485
+11-04-2010 13:10;503,678;194,614
+11-04-2010 13:20;503,993;194,738
+11-04-2010 13:30;504,224;194,828
+11-04-2010 13:40;504,547;194,953
+11-04-2010 13:50;504,736;195,027
+11-04-2010 14:00;504,925;195,100
+11-04-2010 14:10;505,161;195,190
+11-04-2010 14:20;505,387;195,278
+11-04-2010 14:30;505,724;195,413
+11-04-2010 14:40;505,885;195,477
+11-04-2010 14:50;506,105;195,562
+11-04-2010 15:00;506,425;195,680
+11-04-2010 15:10;506,774;195,821
+11-04-2010 15:20;507,008;195,911
+11-04-2010 15:30;507,208;195,990
+11-04-2010 15:40;507,406;196,067
+11-04-2010 15:50;507,563;196,128
+11-04-2010 16:00;507,722;196,189
+11-04-2010 16:10;507,915;196,263
+11-04-2010 16:20;508,058;196,318
+11-04-2010 16:30;508,207;196,377
+11-04-2010 16:40;508,279;196,405
+11-04-2010 16:50;508,361;196,436
+11-04-2010 17:00;508,479;196,480
+11-04-2010 17:10;508,679;196,557
+11-04-2010 17:20;508,779;196,597
+11-04-2010 17:30;508,832;196,616
+11-04-2010 17:40;508,928;196,653
+11-04-2010 17:50;508,992;196,677
+11-04-2010 18:00;509,060;196,704
+11-04-2010 18:10;509,096;196,717
+11-04-2010 18:20;509,123;196,728
+11-04-2010 18:30;509,139;196,733
+11-04-2010 18:40;509,147;196,733
+11-04-2010 18:50;509,152;196,733
+11-04-2010 19:00;509,152;196,733
+11-04-2010 19:10;509,152;196,733
+11-04-2010 19:20;509,152;196,733
+11-04-2010 19:30;509,152;
+11-04-2010 19:40;509,152;
+11-04-2010 19:50;509,152;
+11-04-2010 20:00;509,152;
+11-04-2010 20:10;509,152;
+11-04-2010 20:20;509,152;
+11-04-2010 20:30;509,152;
+11-04-2010 20:40;509,152;
+11-04-2010 20:50;509,152;
+11-04-2010 21:00;509,152;
+11-04-2010 21:10;509,152;
+11-04-2010 21:20;509,152;
+11-04-2010 21:30;509,152;
+11-04-2010 21:40;509,152;
+11-04-2010 21:50;509,152;
+11-04-2010 22:00;509,152;
+11-04-2010 22:10;509,152;
+11-04-2010 22:20;509,152;
+11-04-2010 22:30;509,152;
+11-04-2010 22:40;509,152;
+11-04-2010 22:50;509,152;
+11-04-2010 23:00;509,152;
+11-04-2010 23:10;509,152;
+11-04-2010 23:20;509,152;
+11-04-2010 23:30;509,152;
+11-04-2010 23:40;509,152;
+11-04-2010 23:50;509,152;
+', '2010-08-05 19:51:59', '2010-08-05 19:51:59', 9.976, 3.82900000000001, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-13.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-13', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+13-04-2010 00:00;518,889;
+13-04-2010 00:10;518,889;
+13-04-2010 00:20;518,889;
+13-04-2010 00:30;518,889;
+13-04-2010 00:40;518,889;
+13-04-2010 00:50;518,889;
+13-04-2010 01:00;518,889;
+13-04-2010 01:10;518,889;
+13-04-2010 01:20;518,889;
+13-04-2010 01:30;518,889;
+13-04-2010 01:40;518,889;
+13-04-2010 01:50;518,889;
+13-04-2010 02:00;518,889;
+13-04-2010 02:10;518,889;
+13-04-2010 02:20;518,889;
+13-04-2010 02:30;518,889;
+13-04-2010 02:40;518,889;
+13-04-2010 02:50;518,889;
+13-04-2010 03:00;518,889;
+13-04-2010 03:10;518,889;
+13-04-2010 03:20;518,889;
+13-04-2010 03:30;518,889;
+13-04-2010 03:40;518,889;
+13-04-2010 03:50;518,889;
+13-04-2010 04:00;518,889;
+13-04-2010 04:10;518,889;
+13-04-2010 04:20;518,889;
+13-04-2010 04:30;518,889;
+13-04-2010 04:40;518,889;
+13-04-2010 04:50;518,889;
+13-04-2010 05:00;518,889;
+13-04-2010 05:10;518,889;
+13-04-2010 05:20;518,889;
+13-04-2010 05:30;518,889;
+13-04-2010 05:40;518,889;
+13-04-2010 05:50;518,889;
+13-04-2010 06:00;518,889;
+13-04-2010 06:10;518,889;
+13-04-2010 06:20;518,889;
+13-04-2010 06:30;518,889;200,439
+13-04-2010 06:40;518,889;200,439
+13-04-2010 06:50;518,897;200,439
+13-04-2010 07:00;518,912;200,439
+13-04-2010 07:10;518,939;200,443
+13-04-2010 07:20;518,982;200,459
+13-04-2010 07:30;519,043;200,482
+13-04-2010 07:40;519,128;200,513
+13-04-2010 07:50;519,239;200,555
+13-04-2010 08:00;519,376;200,607
+13-04-2010 08:10;519,542;200,671
+13-04-2010 08:20;519,743;200,747
+13-04-2010 08:30;519,978;200,835
+13-04-2010 08:40;520,241;200,935
+13-04-2010 08:50;520,547;201,051
+13-04-2010 09:00;520,888;201,182
+13-04-2010 09:10;521,243;201,318
+13-04-2010 09:20;521,603;201,454
+13-04-2010 09:30;522,038;201,619
+13-04-2010 09:40;522,454;201,781
+13-04-2010 09:50;522,880;201,953
+13-04-2010 10:00;523,302;202,103
+13-04-2010 10:10;523,830;202,309
+13-04-2010 10:20;524,396;202,526
+13-04-2010 10:30;524,961;202,746
+13-04-2010 10:40;525,566;202,978
+13-04-2010 10:50;526,203;203,221
+13-04-2010 11:00;526,804;203,461
+13-04-2010 11:10;527,374;203,679
+13-04-2010 11:20;527,982;203,908
+13-04-2010 11:30;528,564;204,140
+13-04-2010 11:40;529,129;204,364
+13-04-2010 11:50;529,688;204,571
+13-04-2010 12:00;530,333;204,821
+13-04-2010 12:10;530,951;205,064
+13-04-2010 12:20;531,599;205,314
+13-04-2010 12:30;532,355;205,607
+13-04-2010 12:40;532,963;205,846
+13-04-2010 12:50;533,679;206,122
+13-04-2010 13:00;534,298;206,374
+13-04-2010 13:10;534,864;206,583
+13-04-2010 13:20;535,526;206,843
+13-04-2010 13:30;536,217;207,109
+13-04-2010 13:40;536,927;207,397
+13-04-2010 13:50;537,429;207,582
+13-04-2010 14:00;538,114;207,848
+13-04-2010 14:10;538,801;208,115
+13-04-2010 14:20;539,489;208,381
+13-04-2010 14:30;539,974;208,586
+13-04-2010 14:40;540,467;208,776
+13-04-2010 14:50;540,994;208,982
+13-04-2010 15:00;541,436;209,159
+13-04-2010 15:10;541,814;209,309
+13-04-2010 15:20;542,170;209,451
+13-04-2010 15:30;542,464;209,571
+13-04-2010 15:40;542,737;209,677
+13-04-2010 15:50;543,017;209,787
+13-04-2010 16:00;543,285;209,890
+13-04-2010 16:10;543,553;209,996
+13-04-2010 16:20;543,762;210,080
+13-04-2010 16:30;543,955;210,155
+13-04-2010 16:40;544,153;210,233
+13-04-2010 16:50;544,337;210,304
+13-04-2010 17:00;544,506;210,371
+13-04-2010 17:10;544,668;210,435
+13-04-2010 17:20;544,815;210,492
+13-04-2010 17:30;544,940;210,542
+13-04-2010 17:40;545,056;210,587
+13-04-2010 17:50;545,161;210,628
+13-04-2010 18:00;545,255;210,665
+13-04-2010 18:10;545,335;210,697
+13-04-2010 18:20;545,402;210,723
+13-04-2010 18:30;545,459;210,745
+13-04-2010 18:40;545,503;210,763
+13-04-2010 18:50;545,537;210,776
+13-04-2010 19:00;545,563;210,786
+13-04-2010 19:10;545,583;210,794
+13-04-2010 19:20;545,599;210,799
+13-04-2010 19:30;545,608;210,800
+13-04-2010 19:40;545,613;210,800
+13-04-2010 19:50;545,614;210,800
+13-04-2010 20:00;545,614;210,800
+13-04-2010 20:10;545,614;
+13-04-2010 20:20;545,614;
+13-04-2010 20:30;545,614;
+13-04-2010 20:40;545,614;
+13-04-2010 20:50;545,614;
+13-04-2010 21:00;545,614;
+13-04-2010 21:10;545,614;
+13-04-2010 21:20;545,614;
+13-04-2010 21:30;545,614;
+13-04-2010 21:40;545,614;
+13-04-2010 21:50;545,614;
+13-04-2010 22:00;545,614;
+13-04-2010 22:10;545,614;
+13-04-2010 22:20;545,614;
+13-04-2010 22:30;545,614;
+13-04-2010 22:40;545,614;
+13-04-2010 22:50;545,614;
+13-04-2010 23:00;545,614;
+13-04-2010 23:10;545,614;
+13-04-2010 23:20;545,614;
+13-04-2010 23:30;545,614;
+13-04-2010 23:40;545,614;
+13-04-2010 23:50;545,614;
+', '2010-08-05 19:51:59', '2010-08-05 19:51:59', 26.725, 10.361, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-12.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-12', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+12-04-2010 00:00;509,152;
+12-04-2010 00:10;509,152;
+12-04-2010 00:20;509,152;
+12-04-2010 00:30;509,152;
+12-04-2010 00:40;509,152;
+12-04-2010 00:50;509,152;
+12-04-2010 01:00;509,152;
+12-04-2010 01:10;509,152;
+12-04-2010 01:20;509,152;
+12-04-2010 01:30;509,152;
+12-04-2010 01:40;509,152;
+12-04-2010 01:50;509,152;
+12-04-2010 02:00;509,152;
+12-04-2010 02:10;509,152;
+12-04-2010 02:20;509,152;
+12-04-2010 02:30;509,152;
+12-04-2010 02:40;509,152;
+12-04-2010 02:50;509,152;
+12-04-2010 03:00;509,152;
+12-04-2010 03:10;509,152;
+12-04-2010 03:20;509,152;
+12-04-2010 03:30;509,152;
+12-04-2010 03:40;509,152;
+12-04-2010 03:50;509,152;
+12-04-2010 04:00;509,152;
+12-04-2010 04:10;509,152;
+12-04-2010 04:20;509,152;
+12-04-2010 04:30;509,152;
+12-04-2010 04:40;509,152;
+12-04-2010 04:50;509,152;
+12-04-2010 05:00;509,152;
+12-04-2010 05:10;509,152;
+12-04-2010 05:20;509,152;
+12-04-2010 05:30;509,152;
+12-04-2010 05:40;509,152;
+12-04-2010 05:50;509,152;
+12-04-2010 06:00;509,152;
+12-04-2010 06:10;509,152;
+12-04-2010 06:20;509,152;
+12-04-2010 06:30;509,152;
+12-04-2010 06:40;509,152;
+12-04-2010 06:50;509,152;
+12-04-2010 07:00;509,152;196,733
+12-04-2010 07:10;509,152;196,733
+12-04-2010 07:20;509,157;196,733
+12-04-2010 07:30;509,166;196,733
+12-04-2010 07:40;509,176;196,733
+12-04-2010 07:50;509,191;196,733
+12-04-2010 08:00;509,213;196,739
+12-04-2010 08:10;509,232;196,745
+12-04-2010 08:20;509,257;196,753
+12-04-2010 08:30;509,290;196,765
+12-04-2010 08:40;509,314;196,775
+12-04-2010 08:50;509,324;196,776
+12-04-2010 09:00;509,345;196,776
+12-04-2010 09:10;509,369;196,779
+12-04-2010 09:20;509,409;196,793
+12-04-2010 09:30;509,457;196,811
+12-04-2010 09:40;509,495;196,825
+12-04-2010 09:50;509,539;196,842
+12-04-2010 10:00;509,577;196,856
+12-04-2010 10:10;509,603;196,866
+12-04-2010 10:20;509,623;196,873
+12-04-2010 10:30;509,657;196,884
+12-04-2010 10:40;509,722;196,909
+12-04-2010 10:50;509,782;196,931
+12-04-2010 11:00;509,909;196,974
+12-04-2010 11:10;510,045;197,029
+12-04-2010 11:20;510,103;197,054
+12-04-2010 11:30;510,175;197,079
+12-04-2010 11:40;510,281;197,117
+12-04-2010 11:50;510,494;197,196
+12-04-2010 12:00;510,680;197,269
+12-04-2010 12:10;510,971;197,378
+12-04-2010 12:20;511,298;197,504
+12-04-2010 12:30;511,621;197,632
+12-04-2010 12:40;511,853;197,721
+12-04-2010 12:50;512,099;197,818
+12-04-2010 13:00;512,364;197,920
+12-04-2010 13:10;512,683;198,040
+12-04-2010 13:20;513,058;198,184
+12-04-2010 13:30;513,449;198,338
+12-04-2010 13:40;513,781;198,472
+12-04-2010 13:50;513,964;198,543
+12-04-2010 14:00;514,086;198,592
+12-04-2010 14:10;514,310;198,672
+12-04-2010 14:20;514,694;198,820
+12-04-2010 14:30;514,911;198,912
+12-04-2010 14:40;515,003;198,951
+12-04-2010 14:50;515,087;198,977
+12-04-2010 15:00;515,360;199,065
+12-04-2010 15:10;515,902;199,287
+12-04-2010 15:20;516,433;199,486
+12-04-2010 15:30;516,797;199,637
+12-04-2010 15:40;516,995;199,719
+12-04-2010 15:50;517,270;199,823
+12-04-2010 16:00;517,323;199,852
+12-04-2010 16:10;517,440;199,885
+12-04-2010 16:20;517,685;199,988
+12-04-2010 16:30;517,779;200,023
+12-04-2010 16:40;517,868;200,058
+12-04-2010 16:50;517,919;200,079
+12-04-2010 17:00;518,123;200,155
+12-04-2010 17:10;518,181;200,181
+12-04-2010 17:20;518,245;200,203
+12-04-2010 17:30;518,357;200,246
+12-04-2010 17:40;518,424;200,273
+12-04-2010 17:50;518,485;200,294
+12-04-2010 18:00;518,633;200,349
+12-04-2010 18:10;518,697;200,376
+12-04-2010 18:20;518,726;200,387
+12-04-2010 18:30;518,760;200,398
+12-04-2010 18:40;518,802;200,415
+12-04-2010 18:50;518,826;200,425
+12-04-2010 19:00;518,845;200,432
+12-04-2010 19:10;518,860;200,436
+12-04-2010 19:20;518,873;200,439
+12-04-2010 19:30;518,882;200,439
+12-04-2010 19:40;518,889;200,439
+12-04-2010 19:50;518,889;200,439
+12-04-2010 20:00;518,889;
+12-04-2010 20:10;518,889;
+12-04-2010 20:20;518,889;
+12-04-2010 20:30;518,889;
+12-04-2010 20:40;518,889;
+12-04-2010 20:50;518,889;
+12-04-2010 21:00;518,889;
+12-04-2010 21:10;518,889;
+12-04-2010 21:20;518,889;
+12-04-2010 21:30;518,889;
+12-04-2010 21:40;518,889;
+12-04-2010 21:50;518,889;
+12-04-2010 22:00;518,889;
+12-04-2010 22:10;518,889;
+12-04-2010 22:20;518,889;
+12-04-2010 22:30;518,889;
+12-04-2010 22:40;518,889;
+12-04-2010 22:50;518,889;
+12-04-2010 23:00;518,889;
+12-04-2010 23:10;518,889;
+12-04-2010 23:20;518,889;
+12-04-2010 23:30;518,889;
+12-04-2010 23:40;518,889;
+12-04-2010 23:50;518,889;
+', '2010-08-05 19:51:59', '2010-08-05 19:51:59', 9.73700000000002, 3.70599999999999, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-14.CSV
+  [4;35;1mMonth Load (6.9ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-14', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+14-04-2010 00:00;545,614;
+14-04-2010 00:10;545,614;
+14-04-2010 00:20;545,614;
+14-04-2010 00:30;545,614;
+14-04-2010 00:40;545,614;
+14-04-2010 00:50;545,614;
+14-04-2010 01:00;545,614;
+14-04-2010 01:10;545,614;
+14-04-2010 01:20;545,614;
+14-04-2010 01:30;545,614;
+14-04-2010 01:40;545,614;
+14-04-2010 01:50;545,614;
+14-04-2010 02:00;545,614;
+14-04-2010 02:10;545,614;
+14-04-2010 02:20;545,614;
+14-04-2010 02:30;545,614;
+14-04-2010 02:40;545,614;
+14-04-2010 02:50;545,614;
+14-04-2010 03:00;545,614;
+14-04-2010 03:10;545,614;
+14-04-2010 03:20;545,614;
+14-04-2010 03:30;545,614;
+14-04-2010 03:40;545,614;
+14-04-2010 03:50;545,614;
+14-04-2010 04:00;545,614;
+14-04-2010 04:10;545,614;
+14-04-2010 04:20;545,614;
+14-04-2010 04:30;545,614;
+14-04-2010 04:40;545,614;
+14-04-2010 04:50;545,614;
+14-04-2010 05:00;545,614;
+14-04-2010 05:10;545,614;
+14-04-2010 05:20;545,614;
+14-04-2010 05:30;545,614;
+14-04-2010 05:40;545,614;
+14-04-2010 05:50;545,614;
+14-04-2010 06:00;545,614;
+14-04-2010 06:10;545,614;
+14-04-2010 06:20;545,614;
+14-04-2010 06:30;545,614;
+14-04-2010 06:40;545,614;210,800
+14-04-2010 06:50;545,614;210,800
+14-04-2010 07:00;545,617;210,800
+14-04-2010 07:10;545,624;210,800
+14-04-2010 07:20;545,631;210,800
+14-04-2010 07:30;545,645;210,800
+14-04-2010 07:40;545,664;210,800
+14-04-2010 07:50;545,683;210,800
+14-04-2010 08:00;545,706;210,800
+14-04-2010 08:10;545,738;210,800
+14-04-2010 08:20;545,785;210,817
+14-04-2010 08:30;545,858;210,841
+14-04-2010 08:40;546,023;210,902
+14-04-2010 08:50;546,161;210,954
+14-04-2010 09:00;546,447;211,063
+14-04-2010 09:10;546,728;211,163
+14-04-2010 09:20;546,925;211,246
+14-04-2010 09:30;547,297;211,382
+14-04-2010 09:40;547,696;211,535
+14-04-2010 09:50;548,119;211,696
+14-04-2010 10:00;548,554;211,864
+14-04-2010 10:10;549,038;212,049
+14-04-2010 10:20;549,545;212,247
+14-04-2010 10:30;550,073;212,449
+14-04-2010 10:40;550,638;212,666
+14-04-2010 10:50;551,229;212,892
+14-04-2010 11:00;551,818;213,121
+14-04-2010 11:10;552,415;213,351
+14-04-2010 11:20;553,051;213,599
+14-04-2010 11:30;553,698;213,847
+14-04-2010 11:40;554,347;214,101
+14-04-2010 11:50;554,995;214,350
+14-04-2010 12:00;555,530;214,566
+14-04-2010 12:10;556,105;214,777
+14-04-2010 12:20;556,737;215,029
+14-04-2010 12:30;557,098;215,187
+14-04-2010 12:40;557,254;215,261
+14-04-2010 12:50;557,319;215,284
+14-04-2010 13:00;557,412;215,320
+14-04-2010 13:10;557,508;215,354
+14-04-2010 13:20;557,640;215,401
+14-04-2010 13:30;557,834;215,478
+14-04-2010 13:40;557,909;215,513
+14-04-2010 13:50;557,965;215,532
+14-04-2010 14:00;558,030;215,559
+14-04-2010 14:10;558,072;215,575
+14-04-2010 14:20;558,122;215,593
+14-04-2010 14:30;558,173;215,614
+14-04-2010 14:40;558,254;215,639
+14-04-2010 14:50;558,403;215,696
+14-04-2010 15:00;558,466;215,725
+14-04-2010 15:10;558,535;215,750
+14-04-2010 15:20;558,594;215,774
+14-04-2010 15:30;558,630;215,788
+14-04-2010 15:40;558,673;215,805
+14-04-2010 15:50;558,731;215,824
+14-04-2010 16:00;558,810;215,854
+14-04-2010 16:10;559,017;215,921
+14-04-2010 16:20;559,164;215,990
+14-04-2010 16:30;559,216;216,011
+14-04-2010 16:40;559,276;216,035
+14-04-2010 16:50;559,297;216,045
+14-04-2010 17:00;559,308;216,045
+14-04-2010 17:10;559,326;216,045
+14-04-2010 17:20;559,342;216,045
+14-04-2010 17:30;559,367;216,049
+14-04-2010 17:40;559,384;216,055
+14-04-2010 17:50;559,403;216,055
+14-04-2010 18:00;559,423;216,055
+14-04-2010 18:10;559,448;216,055
+14-04-2010 18:20;559,450;216,055
+14-04-2010 18:30;559,456;216,055
+14-04-2010 18:40;559,466;216,055
+14-04-2010 18:50;559,483;216,055
+14-04-2010 19:00;559,496;216,055
+14-04-2010 19:10;559,508;216,055
+14-04-2010 19:20;559,513;216,055
+14-04-2010 19:30;559,517;216,055
+14-04-2010 19:40;559,519;216,055
+14-04-2010 19:50;559,520;216,055
+14-04-2010 20:00;559,520;
+14-04-2010 20:10;559,520;
+14-04-2010 20:20;559,520;
+14-04-2010 20:30;559,520;
+14-04-2010 20:40;559,520;
+14-04-2010 20:50;559,520;
+14-04-2010 21:00;559,520;
+14-04-2010 21:10;559,520;
+14-04-2010 21:20;559,520;
+14-04-2010 21:30;559,520;
+14-04-2010 21:40;559,520;
+14-04-2010 21:50;559,520;
+14-04-2010 22:00;559,520;
+14-04-2010 22:10;559,520;
+14-04-2010 22:20;559,520;
+14-04-2010 22:30;559,520;
+14-04-2010 22:40;559,520;
+14-04-2010 22:50;559,520;
+14-04-2010 23:00;559,520;
+14-04-2010 23:10;559,520;
+14-04-2010 23:20;559,520;
+14-04-2010 23:30;559,520;
+14-04-2010 23:40;559,520;
+14-04-2010 23:50;559,520;
+', '2010-08-05 19:51:59', '2010-08-05 19:51:59', 13.9059999999999, 5.255, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-06.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-06', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174
+;SB5000TL-20 
+;2100143174
+;E-Total
+;Counter
+DD-MM-YYYY HH:mm;kWh
+06-04-2010 00:00;382,177
+06-04-2010 00:10;382,177
+06-04-2010 00:20;382,177
+06-04-2010 00:30;382,177
+06-04-2010 00:40;382,177
+06-04-2010 00:50;382,177
+06-04-2010 01:00;382,177
+06-04-2010 01:10;382,177
+06-04-2010 01:20;382,177
+06-04-2010 01:30;382,177
+06-04-2010 01:40;382,177
+06-04-2010 01:50;382,177
+06-04-2010 02:00;382,177
+06-04-2010 02:10;382,177
+06-04-2010 02:20;382,177
+06-04-2010 02:30;382,177
+06-04-2010 02:40;382,177
+06-04-2010 02:50;382,177
+06-04-2010 03:00;382,177
+06-04-2010 03:10;382,177
+06-04-2010 03:20;382,177
+06-04-2010 03:30;382,177
+06-04-2010 03:40;382,177
+06-04-2010 03:50;382,177
+06-04-2010 04:00;382,177
+06-04-2010 04:10;382,177
+06-04-2010 04:20;382,177
+06-04-2010 04:30;382,177
+06-04-2010 04:40;382,177
+06-04-2010 04:50;382,177
+06-04-2010 05:00;382,177
+06-04-2010 05:10;382,177
+06-04-2010 05:20;382,177
+06-04-2010 05:30;382,177
+06-04-2010 05:40;382,177
+06-04-2010 05:50;382,177
+06-04-2010 06:00;382,177
+06-04-2010 06:10;382,177
+06-04-2010 06:20;382,177
+06-04-2010 06:30;382,177
+06-04-2010 06:40;382,177
+06-04-2010 06:50;382,177
+06-04-2010 07:00;382,177
+06-04-2010 07:10;382,183
+06-04-2010 07:20;382,191
+06-04-2010 07:30;382,204
+06-04-2010 07:40;382,224
+06-04-2010 07:50;382,252
+06-04-2010 08:00;382,283
+06-04-2010 08:10;382,335
+06-04-2010 08:20;382,407
+06-04-2010 08:30;382,492
+06-04-2010 08:40;382,573
+06-04-2010 08:50;382,679
+06-04-2010 09:00;382,865
+06-04-2010 09:10;383,193
+06-04-2010 09:20;383,635
+06-04-2010 09:30;384,140
+06-04-2010 09:40;384,614
+06-04-2010 09:50;384,850
+06-04-2010 10:00;385,229
+06-04-2010 10:10;385,714
+06-04-2010 10:20;386,244
+06-04-2010 10:30;386,816
+06-04-2010 10:40;387,432
+06-04-2010 10:50;388,066
+06-04-2010 11:00;388,719
+06-04-2010 11:10;389,378
+06-04-2010 11:20;390,044
+06-04-2010 11:30;390,728
+06-04-2010 11:40;391,425
+06-04-2010 11:50;392,137
+06-04-2010 12:00;392,857
+06-04-2010 12:10;393,577
+06-04-2010 12:20;394,301
+06-04-2010 12:30;395,048
+06-04-2010 12:40;395,797
+06-04-2010 12:50;396,537
+06-04-2010 13:00;397,267
+06-04-2010 13:10;397,945
+06-04-2010 13:20;398,676
+06-04-2010 13:30;399,443
+06-04-2010 13:40;400,184
+06-04-2010 13:50;400,915
+06-04-2010 14:00;401,637
+06-04-2010 14:10;402,338
+06-04-2010 14:20;403,041
+06-04-2010 14:30;403,737
+06-04-2010 14:40;404,418
+06-04-2010 14:50;405,082
+06-04-2010 15:00;405,733
+06-04-2010 15:10;406,365
+06-04-2010 15:20;406,987
+06-04-2010 15:30;407,554
+06-04-2010 15:40;408,103
+06-04-2010 15:50;408,637
+06-04-2010 16:00;409,153
+06-04-2010 16:10;409,643
+06-04-2010 16:20;410,114
+06-04-2010 16:30;410,540
+06-04-2010 16:40;410,920
+06-04-2010 16:50;411,273
+06-04-2010 17:00;411,627
+06-04-2010 17:10;411,935
+06-04-2010 17:20;412,220
+06-04-2010 17:30;412,465
+06-04-2010 17:40;412,680
+06-04-2010 17:50;412,867
+06-04-2010 18:00;413,022
+06-04-2010 18:10;413,147
+06-04-2010 18:20;413,246
+06-04-2010 18:30;413,319
+06-04-2010 18:40;413,372
+06-04-2010 18:50;413,409
+06-04-2010 19:00;413,435
+06-04-2010 19:10;413,452
+06-04-2010 19:20;413,464
+06-04-2010 19:30;413,470
+06-04-2010 19:40;413,473
+06-04-2010 19:50;413,473
+06-04-2010 20:00;413,473
+06-04-2010 20:10;413,473
+06-04-2010 20:20;413,473
+06-04-2010 20:30;413,473
+06-04-2010 20:40;413,473
+06-04-2010 20:50;413,473
+06-04-2010 21:00;413,473
+06-04-2010 21:10;413,473
+06-04-2010 21:20;413,473
+06-04-2010 21:30;413,473
+06-04-2010 21:40;413,473
+06-04-2010 21:50;413,473
+06-04-2010 22:00;413,473
+06-04-2010 22:10;413,473
+06-04-2010 22:20;413,473
+06-04-2010 22:30;413,473
+06-04-2010 22:40;413,473
+06-04-2010 22:50;413,473
+06-04-2010 23:00;413,473
+06-04-2010 23:10;413,473
+06-04-2010 23:20;413,473
+06-04-2010 23:30;413,473
+06-04-2010 23:40;413,473
+06-04-2010 23:50;413,473
+', '2010-08-05 19:51:59', '2010-08-05 19:51:59', 31.296, 0.0, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-08.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-08', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+08-04-2010 00:00;447,044;
+08-04-2010 00:10;447,044;
+08-04-2010 00:20;447,044;
+08-04-2010 00:30;447,044;
+08-04-2010 00:40;447,044;
+08-04-2010 00:50;447,044;
+08-04-2010 01:00;447,044;
+08-04-2010 01:10;447,044;
+08-04-2010 01:20;447,044;
+08-04-2010 01:30;447,044;
+08-04-2010 01:40;447,044;
+08-04-2010 01:50;447,044;
+08-04-2010 02:00;447,044;
+08-04-2010 02:10;447,044;
+08-04-2010 02:20;447,044;
+08-04-2010 02:30;447,044;
+08-04-2010 02:40;447,044;
+08-04-2010 02:50;447,044;
+08-04-2010 03:00;447,044;
+08-04-2010 03:10;447,044;
+08-04-2010 03:20;447,044;
+08-04-2010 03:30;447,044;
+08-04-2010 03:40;447,044;
+08-04-2010 03:50;447,044;
+08-04-2010 04:00;447,044;
+08-04-2010 04:10;447,044;
+08-04-2010 04:20;447,044;
+08-04-2010 04:30;447,044;
+08-04-2010 04:40;447,044;
+08-04-2010 04:50;447,044;
+08-04-2010 05:00;447,044;
+08-04-2010 05:10;447,044;
+08-04-2010 05:20;447,044;
+08-04-2010 05:30;447,044;
+08-04-2010 05:40;447,044;
+08-04-2010 05:50;447,044;
+08-04-2010 06:00;447,044;
+08-04-2010 06:10;447,044;
+08-04-2010 06:20;447,044;
+08-04-2010 06:30;447,044;
+08-04-2010 06:40;447,044;172,803
+08-04-2010 06:50;447,048;172,803
+08-04-2010 07:00;447,062;172,803
+08-04-2010 07:10;447,089;172,803
+08-04-2010 07:20;447,126;172,820
+08-04-2010 07:30;447,196;172,849
+08-04-2010 07:40;447,297;172,888
+08-04-2010 07:50;447,420;172,933
+08-04-2010 08:00;447,550;172,984
+08-04-2010 08:10;447,732;173,055
+08-04-2010 08:20;447,937;173,138
+08-04-2010 08:30;448,175;173,231
+08-04-2010 08:40;448,446;173,339
+08-04-2010 08:50;448,783;173,472
+08-04-2010 09:00;449,129;173,605
+08-04-2010 09:10;449,411;173,710
+08-04-2010 09:20;449,697;173,824
+08-04-2010 09:30;450,061;173,967
+08-04-2010 09:40;450,387;174,090
+08-04-2010 09:50;450,718;174,221
+08-04-2010 10:00;451,173;174,405
+08-04-2010 10:10;451,759;174,643
+08-04-2010 10:20;452,385;174,887
+08-04-2010 10:30;452,847;175,046
+08-04-2010 10:40;453,181;175,187
+08-04-2010 10:50;453,673;175,381
+08-04-2010 11:00;454,223;175,604
+08-04-2010 11:10;454,774;175,814
+08-04-2010 11:20;455,333;176,025
+08-04-2010 11:30;455,888;176,258
+08-04-2010 11:40;456,595;176,531
+08-04-2010 11:50;457,202;176,774
+08-04-2010 12:00;457,944;177,059
+08-04-2010 12:10;458,639;177,329
+08-04-2010 12:20;459,345;177,608
+08-04-2010 12:30;460,111;177,909
+08-04-2010 12:40;460,889;178,211
+08-04-2010 12:50;461,589;178,485
+08-04-2010 13:00;462,142;178,690
+08-04-2010 13:10;462,464;178,813
+08-04-2010 13:20;462,735;178,916
+08-04-2010 13:30;462,975;179,010
+08-04-2010 13:40;463,213;179,103
+08-04-2010 13:50;463,464;179,204
+08-04-2010 14:00;463,771;179,327
+08-04-2010 14:10;464,140;179,481
+08-04-2010 14:20;464,651;179,678
+08-04-2010 14:30;465,042;179,825
+08-04-2010 14:40;465,366;179,950
+08-04-2010 14:50;465,717;180,088
+08-04-2010 15:00;466,003;180,199
+08-04-2010 15:10;466,296;180,313
+08-04-2010 15:20;466,557;180,415
+08-04-2010 15:30;466,804;180,510
+08-04-2010 15:40;467,076;180,621
+08-04-2010 15:50;467,498;180,788
+08-04-2010 16:00;467,839;180,911
+08-04-2010 16:10;468,011;180,977
+08-04-2010 16:20;468,186;181,048
+08-04-2010 16:30;468,398;181,128
+08-04-2010 16:40;468,546;181,184
+08-04-2010 16:50;468,662;181,228
+08-04-2010 17:00;468,776;181,272
+08-04-2010 17:10;468,896;181,318
+08-04-2010 17:20;469,017;181,365
+08-04-2010 17:30;469,126;181,406
+08-04-2010 17:40;469,221;181,442
+08-04-2010 17:50;469,296;181,470
+08-04-2010 18:00;469,384;181,503
+08-04-2010 18:10;469,453;181,529
+08-04-2010 18:20;469,522;181,555
+08-04-2010 18:30;469,586;181,579
+08-04-2010 18:40;469,634;181,597
+08-04-2010 18:50;469,665;181,608
+08-04-2010 19:00;469,684;181,615
+08-04-2010 19:10;469,697;181,616
+08-04-2010 19:20;469,706;181,616
+08-04-2010 19:30;469,713;181,616
+08-04-2010 19:40;469,715;181,616
+08-04-2010 19:50;469,715;181,616
+08-04-2010 20:00;469,715;
+08-04-2010 20:10;469,715;
+08-04-2010 20:20;469,715;
+08-04-2010 20:30;469,715;
+08-04-2010 20:40;469,715;
+08-04-2010 20:50;469,715;
+08-04-2010 21:00;469,715;
+08-04-2010 21:10;469,715;
+08-04-2010 21:20;469,715;
+08-04-2010 21:30;469,715;
+08-04-2010 21:40;469,715;
+08-04-2010 21:50;469,715;
+08-04-2010 22:00;469,715;
+08-04-2010 22:10;469,715;
+08-04-2010 22:20;469,715;
+08-04-2010 22:30;469,715;
+08-04-2010 22:40;469,715;
+08-04-2010 22:50;469,715;
+08-04-2010 23:00;469,715;
+08-04-2010 23:10;469,715;
+08-04-2010 23:20;469,715;
+08-04-2010 23:30;469,715;
+08-04-2010 23:40;469,715;
+08-04-2010 23:50;469,715;
+', '2010-08-05 19:52:00', '2010-08-05 19:52:00', 22.671, 8.81300000000002, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-07.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-07', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+07-04-2010 00:00;413,473;
+07-04-2010 00:10;413,473;
+07-04-2010 00:20;413,473;
+07-04-2010 00:30;413,473;
+07-04-2010 00:40;413,473;
+07-04-2010 00:50;413,473;
+07-04-2010 01:00;413,473;
+07-04-2010 01:10;413,473;
+07-04-2010 01:20;413,473;
+07-04-2010 01:30;413,473;
+07-04-2010 01:40;413,473;
+07-04-2010 01:50;413,473;
+07-04-2010 02:00;413,473;
+07-04-2010 02:10;413,473;
+07-04-2010 02:20;413,473;
+07-04-2010 02:30;413,473;
+07-04-2010 02:40;413,473;
+07-04-2010 02:50;413,473;
+07-04-2010 03:00;413,473;
+07-04-2010 03:10;413,473;
+07-04-2010 03:20;413,473;
+07-04-2010 03:30;413,473;
+07-04-2010 03:40;413,473;
+07-04-2010 03:50;413,473;
+07-04-2010 04:00;413,473;
+07-04-2010 04:10;413,473;
+07-04-2010 04:20;413,473;
+07-04-2010 04:30;413,473;
+07-04-2010 04:40;413,473;
+07-04-2010 04:50;413,473;
+07-04-2010 05:00;413,473;
+07-04-2010 05:10;413,473;
+07-04-2010 05:20;413,473;
+07-04-2010 05:30;413,473;
+07-04-2010 05:40;413,473;
+07-04-2010 05:50;413,473;
+07-04-2010 06:00;413,473;
+07-04-2010 06:10;413,473;
+07-04-2010 06:20;413,473;
+07-04-2010 06:30;413,473;
+07-04-2010 06:40;413,473;
+07-04-2010 06:50;413,473;159,693
+07-04-2010 07:00;413,480;159,693
+07-04-2010 07:10;413,493;159,693
+07-04-2010 07:20;413,514;159,693
+07-04-2010 07:30;413,553;159,693
+07-04-2010 07:40;413,620;159,715
+07-04-2010 07:50;413,715;159,745
+07-04-2010 08:00;413,841;159,787
+07-04-2010 08:10;413,998;159,842
+07-04-2010 08:20;414,192;159,951
+07-04-2010 08:30;414,425;160,043
+07-04-2010 08:40;414,694;160,147
+07-04-2010 08:50;414,997;160,265
+07-04-2010 09:00;415,337;160,398
+07-04-2010 09:10;415,703;160,540
+07-04-2010 09:20;416,094;160,695
+07-04-2010 09:30;416,523;160,861
+07-04-2010 09:40;416,978;161,041
+07-04-2010 09:50;417,476;161,235
+07-04-2010 10:00;418,000;161,438
+07-04-2010 10:10;418,549;161,655
+07-04-2010 10:20;419,121;161,876
+07-04-2010 10:30;419,715;162,111
+07-04-2010 10:40;420,333;162,352
+07-04-2010 10:50;420,968;162,603
+07-04-2010 11:00;421,623;162,858
+07-04-2010 11:10;422,295;163,120
+07-04-2010 11:20;422,983;163,393
+07-04-2010 11:30;423,681;163,665
+07-04-2010 11:40;424,391;163,943
+07-04-2010 11:50;425,113;164,226
+07-04-2010 12:00;425,846;164,513
+07-04-2010 12:10;426,581;164,801
+07-04-2010 12:20;427,327;165,094
+07-04-2010 12:30;428,089;165,394
+07-04-2010 12:40;428,851;165,699
+07-04-2010 12:50;429,620;165,999
+07-04-2010 13:00;430,387;166,301
+07-04-2010 13:10;431,148;166,601
+07-04-2010 13:20;431,902;166,897
+07-04-2010 13:30;432,658;167,194
+07-04-2010 13:40;433,405;167,487
+07-04-2010 13:50;434,153;167,781
+07-04-2010 14:00;434,892;168,076
+07-04-2010 14:10;435,616;168,360
+07-04-2010 14:20;436,327;168,639
+07-04-2010 14:30;437,028;168,913
+07-04-2010 14:40;437,716;169,183
+07-04-2010 14:50;438,386;169,448
+07-04-2010 15:00;439,041;169,705
+07-04-2010 15:10;439,684;169,958
+07-04-2010 15:20;440,311;170,204
+07-04-2010 15:30;440,922;170,443
+07-04-2010 15:40;441,507;170,672
+07-04-2010 15:50;442,069;170,896
+07-04-2010 16:00;442,609;171,108
+07-04-2010 16:10;443,126;171,310
+07-04-2010 16:20;443,588;171,491
+07-04-2010 16:30;444,018;171,659
+07-04-2010 16:40;444,426;171,821
+07-04-2010 16:50;444,799;171,966
+07-04-2010 17:00;445,152;172,104
+07-04-2010 17:10;445,470;172,228
+07-04-2010 17:20;445,763;172,341
+07-04-2010 17:30;446,019;172,438
+07-04-2010 17:40;446,248;172,524
+07-04-2010 17:50;446,442;172,596
+07-04-2010 18:00;446,605;172,657
+07-04-2010 18:10;446,734;172,703
+07-04-2010 18:20;446,834;172,737
+07-04-2010 18:30;446,908;172,762
+07-04-2010 18:40;446,958;172,778
+07-04-2010 18:50;446,992;172,790
+07-04-2010 19:00;447,013;172,797
+07-04-2010 19:10;447,028;172,802
+07-04-2010 19:20;447,039;172,803
+07-04-2010 19:30;447,043;172,803
+07-04-2010 19:40;447,044;172,803
+07-04-2010 19:50;447,044;172,803
+07-04-2010 20:00;447,044;
+07-04-2010 20:10;447,044;
+07-04-2010 20:20;447,044;
+07-04-2010 20:30;447,044;
+07-04-2010 20:40;447,044;
+07-04-2010 20:50;447,044;
+07-04-2010 21:00;447,044;
+07-04-2010 21:10;447,044;
+07-04-2010 21:20;447,044;
+07-04-2010 21:30;447,044;
+07-04-2010 21:40;447,044;
+07-04-2010 21:50;447,044;
+07-04-2010 22:00;447,044;
+07-04-2010 22:10;447,044;
+07-04-2010 22:20;447,044;
+07-04-2010 22:30;447,044;
+07-04-2010 22:40;447,044;
+07-04-2010 22:50;447,044;
+07-04-2010 23:00;447,044;
+07-04-2010 23:10;447,044;
+07-04-2010 23:20;447,044;
+07-04-2010 23:30;447,044;
+07-04-2010 23:40;447,044;
+07-04-2010 23:50;447,044;
+', '2010-08-05 19:52:00', '2010-08-05 19:52:00', 33.571, 13.11, 1)[0m
+FilePath:
+public/data/f0569742-464d-41d6-bda7-24c3adabdb89/10-04-02.CSV
+  [4;35;1mMonth Load (0.4ms)[0m   [0mSELECT * FROM "months" WHERE (year_number = 2010 and month = 4) LIMIT 1[0m
+  [4;36;1mDay Create (0.4ms)[0m   [0;1mINSERT INTO "days" ("date", "csvData", "created_at", "updated_at", "sum_unit0", "sum_unit1", "month_id") VALUES('2010-04-02', 'sep=;
+Version CSV|Tool SunnyBeam2|Linebreaks CR/LF|Delimiter semicolon|Decimalpoint comma|Precision 3|Language de-DE|TZO=1|DST
+
+;SN: 2100143174;SN: 2001106936
+;SB5000TL-20 ;SB 2500 
+;2100143174;2001106936
+;E-Total;E-Total
+;Counter;Counter
+DD-MM-YYYY HH:mm;kWh;kWh
+02-04-2010 00:00;307,671;
+02-04-2010 00:10;307,671;
+02-04-2010 00:20;307,671;
+02-04-2010 00:30;307,671;
+02-04-2010 00:40;307,671;
+02-04-2010 00:50;307,671;
+02-04-2010 01:00;307,671;
+02-04-2010 01:10;307,671;
+02-04-2010 01:20;307,671;
+02-04-2010 01:30;307,671;
+02-04-2010 01:40;307,671;
+02-04-2010 01:50;307,671;
+02-04-2010 02:00;307,671;
+02-04-2010 02:10;307,671;
+02-04-2010 02:20;307,671;
+02-04-2010 02:30;307,671;
+02-04-2010 02:40;307,671;
+02-04-2010 02:50;307,671;
+02-04-2010 03:00;307,671;
+02-04-2010 03:10;307,671;
+02-04-2010 03:20;307,671;
+02-04-2010 03:30;307,671;
+02-04-2010 03:40;307,671;
+02-04-2010 03:50;307,671;
+02-04-2010 04:00;307,671;
+02-04-2010 04:10;307,671;
+02-04-2010 04:20;307,671;
+02-04-2010 04:30;307,671;
+02-04-2010 04:40;307,671;
+02-04-2010 04:50;307,671;
+02-04-2010 05:00;307,671;
+02-04-2010 05:10;307,671;
+02-04-2010 05:20;307,671;
+02-04-2010 05:30;307,671;
+02-04-2010 05:40;307,671;
+02-04-2010 05:50;307,671;
+02-04-2010 06:00;307,671;
+02-04-2010 06:10;307,671;
+02-04-2010 06:20;307,671;
+02-04-2010 06:30;307,671;
+02-04-2010 06:40;307,671;
+02-04-2010 06:50;307,671;
+02-04-2010 07:00;307,671;118,629
+02-04-2010 07:10;307,674;118,629
+02-04-2010 07:20;307,687;118,629
+02-04-2010 07:30;307,714;118,630
+02-04-2010 07:40;307,764;118,651
+02-04-2010 07:50;307,851;118,682
+02-04-2010 08:00;307,982;118,726
+02-04-2010 08:10;308,156;118,791
+02-04-2010 08:20;308,364;118,871
+02-04-2010 08:30;308,611;118,964
+02-04-2010 08:40;308,896;119,073
+02-04-2010 08:50;309,217;119,195
+02-04-2010 09:00;309,574;119,334
+02-04-2010 09:10;309,962;119,483
+02-04-2010 09:20;310,385;119,646
+02-04-2010 09:30;310,839;119,822
+02-04-2010 09:40;311,327;120,010
+02-04-2010 09:50;311,817;120,200
+02-04-2010 10:00;312,355;120,409
+02-04-2010 10:10;312,917;120,629
+02-04-2010 10:20;313,504;120,856
+02-04-2010 10:30;314,112;121,092
+02-04-2010 10:40;314,732;121,332
+02-04-2010 10:50;315,381;121,583
+02-04-2010 11:00;316,049;121,843
+02-04-2010 11:10;316,733;122,108
+02-04-2010 11:20;317,432;122,383
+02-04-2010 11:30;318,145;122,658
+02-04-2010 11:40;318,870;122,940
+02-04-2010 11:50;319,604;123,225
+02-04-2010 12:00;320,347;123,514
+02-04-2010 12:10;321,104;123,808
+02-04-2010 12:20;321,764;124,068
+02-04-2010 12:30;322,547;124,373
+02-04-2010 12:40;323,315;124,671
+02-04-2010 12:50;323,993;124,939
+02-04-2010 13:00;324,560;125,167
+02-04-2010 13:10;324,988;125,327
+02-04-2010 13:20;325,740;125,623
+02-04-2010 13:30;326,489;125,913
+02-04-2010 13:40;327,268;126,217
+02-04-2010 13:50;328,026;126,515
+02-04-2010 14:00;328,761;126,802
+02-04-2010 14:10;329,494;127,088
+02-04-2010 14:20;330,197;127,362
+02-04-2010 14:30;330,875;127,634
+02-04-2010 14:40;331,576;127,909
+02-04-2010 14:50;332,266;128,178
+02-04-2010 15:00;332,935;128,440
+02-04-2010 15:10;333,584;128,695
+02-04-2010 15:20;334,218;128,943
+02-04-2010 15:30;334,823;129,180
+02-04-2010 15:40;335,410;129,414
+02-04-2010 15:50;335,969;129,634
+02-04-2010 16:00;336,514;129,849
+02-04-2010 16:10;337,026;130,050
+02-04-2010 16:20;337,497;130,236
+02-04-2010 16:30;337,942;130,411
+02-04-2010 16:40;338,348;130,571
+02-04-2010 16:50;338,728;130,721
+02-04-2010 17:00;339,065;130,855
+02-04-2010 17:10;339,399;130,986
+02-04-2010 17:20;339,710;131,108
+02-04-2010 17:30;339,973;131,211
+02-04-2010 17:40;340,189;131,296
+02-04-2010 17:50;340,380;131,368
+02-04-2010 18:00;340,541;131,428
+02-04-2010 18:10;340,673;131,477
+02-04-2010 18:20;340,770;131,513
+02-04-2010 18:30;340,834;131,535
+02-04-2010 18:40;340,882;131,552
+02-04-2010 18:50;340,913;131,563
+02-04-2010 19:00;340,932;131,570
+02-04-2010 19:10;340,945;131,573
+02-04-2010 19:20;340,952;131,573
+02-04-2010 19:30;340,957;131,573
+02-04-2010 19:40;340,957;131,573
+02-04-2010 19:50;340,957;131,573
+02-04-2010 20:00;340,957;
+02-04-2010 20:10;340,957;
+02-04-2010 20:20;340,957;
+02-04-2010 20:30;340,957;
+02-04-2010 20:40;340,957;
+02-04-2010 20:50;340,957;
+02-04-2010 21:00;340,957;
+02-04-2010 21:10;340,957;
+02-04-2010 21:20;340,957;
+02-04-2010 21:30;340,957;
+02-04-2010 21:40;340,957;
+02-04-2010 21:50;340,957;
+02-04-2010 22:00;340,957;
+02-04-2010 22:10;340,957;
+02-04-2010 22:20;340,957;
+02-04-2010 22:30;340,957;
+02-04-2010 22:40;340,957;
+02-04-2010 22:50;340,957;
+02-04-2010 23:00;340,957;
+02-04-2010 23:10;340,957;
+02-04-2010 23:20;340,957;
+02-04-2010 23:30;340,957;
+02-04-2010 23:40;340,957;
+02-04-2010 23:50;340,957;
+', '2010-08-05 19:52:00', '2010-08-05 19:52:00', 33.286, 12.944, 1)[0m
+Redirected to http://localhost:3000/days
+Completed in 2742ms (DB: 24) | 302 Found [http://localhost/upload/uploadFile]
+
+
+Processing DaysController#index (for 127.0.0.1 at 2010-08-05 21:52:00) [GET]
+  [4;35;1mDay Load (2.4ms)[0m   [0mSELECT * FROM "days" [0m
+Rendering template within layouts/days
+Rendering days/index
+Completed in 44ms (View: 16, DB: 2) | 200 OK [http://localhost/days]
+
+
+Processing MonthsController#index (for 127.0.0.1 at 2010-08-05 21:53:35) [GET]
+  [4;36;1mMonth Load (4.3ms)[0m   [0;1mSELECT * FROM "months" [0m
+Rendering template within layouts/months
+Rendering months/index
+  [4;35;1mYear Load (0.3ms)[0m   [0mSELECT * FROM "years" WHERE ("years"."id" = 1) [0m
+Completed in 42ms (View: 13, DB: 5) | 200 OK [http://localhost/months]
+
+
+Processing MonthsController#show (for 127.0.0.1 at 2010-08-05 21:53:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMonth Load (0.3ms)[0m   [0;1mSELECT * FROM "months" WHERE ("months"."id" = 1) [0m
+Rendering template within layouts/months
+Rendering months/show
+
+ActionView::TemplateError (undefined method `date' for #<Month:0xb140808>) on line #3 of app/views/months/show.html.erb:
+1: <p>
+2:   <b>Date:</b>
+3:   <%=h @month.date %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/months/show.html.erb:3
+    app/controllers/months_controller.rb:18:in `show'
+    <internal:prelude>:8:in `synchronize'
+    /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/brase/.rvm/rubies/ruby-1.9.1-p378/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (102.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)

@@ -42,11 +42,18 @@ class DaysController < ApplicationController
   def create
     @day = Day.new(params[:day])
     @day.loadFileData(params[:csvData])
-		month = Month.find(:first,:conditions => [ "year = ? and month = ?",@day.date.year,@day.date.month ])
+		month = Month.find(:first,:conditions => [ "year_number = ? and month = ?",@day.date.year,@day.date.month ])
 		if(month == nil)
 		 month = Month.new
-		 month.year = @day.date.year
+		 month.year_number = @day.date.year
 		 month.month = @day.date.month
+		 year = Year.find(:first,:conditions => ["year = ?",@day.date.year])
+		 if(year == nil)
+			 year = Year.new
+			 year.year = @day.date.year
+			 year.save
+		 end
+		 month.year = year
 		 month.save
 		end
 		@day.month = month
