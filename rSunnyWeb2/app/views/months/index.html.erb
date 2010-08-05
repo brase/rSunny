@@ -2,16 +2,18 @@
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Csvdata</th>
+    <th>Month</th>
+		<th>Year</th>
+    
     <th>Sum unit0</th>
     <th>Sum unit1</th>
   </tr>
 
 <% @months.each do |month| %>
   <tr>
-    <td><%=h month.date %></td>
-    <td><%=h month.csvData %></td>
+    <td><%=h month.month %></td>
+		<td><%=h month.year %></td>
+    
     <td><%=h month.sum_unit0 %></td>
     <td><%=h month.sum_unit1 %></td>
     <td><%= link_to 'Show', month %></td>

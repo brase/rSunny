@@ -7,7 +7,7 @@ require 'zip/zipfilesystem'
 require 'uuidtools'
 
 class Day < ActiveRecord::Base
-    
+  belongs_to :month  
   def loadFileData(csvFile)    
     self.csvData = csvFile.read
 		unit0 = 1
@@ -43,16 +43,16 @@ class Day < ActiveRecord::Base
       end      
     end
 		if(unit0_start == nil)
-			unit0_start = 0
+			unit0_start = "0"
 		end
 		if(unit1_start == nil)
-			unit1_start = 0
+			unit1_start = "0"
 		end
 		if(unit0_end == nil)
-			unit0_end = 0
+			unit0_end = "0"
 		end
 		if(unit1_end == nil)
-			unit1_end = 0
+			unit1_end = "0"
 		end
     unit0_start = unit0_start.gsub(",",".")
     unit1_start = unit1_start.gsub(",",".")

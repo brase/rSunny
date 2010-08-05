@@ -42,6 +42,14 @@ class DaysController < ApplicationController
   def create
     @day = Day.new(params[:day])
     @day.loadFileData(params[:csvData])
+		month = Month.find(:first,:conditions => [ "year = ? and month = ?",@day.date.year,@day.date.month ])
+		if(month == nil)
+		 month = Month.new
+		 month.year = @day.date.year
+		 month.month = @day.date.month
+		 month.save
+		end
+		@day.month = month
     respond_to do |format|
       if @day.save
         flash[:notice] = 'Day was successfully created.'

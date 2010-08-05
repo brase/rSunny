@@ -35,7 +35,15 @@ class UploadController < ApplicationController
 			 logger.debug e
 			 file = File.new(e, 'r')
 			 day = Day.new
-			 day.loadFileData(file)
+			 day.loadFileData(file)			 
+			 month = Month.find(:first,:conditions => [ "year = ? and month = ?",day.date.year,day.date.month ])
+			 if(month == nil)
+				 month = Month.new
+				 month.year = day.date.year
+				 month.month = day.date.month
+				 month.save
+			 end
+			 day.month = month
 			 day.save
 		end
 		FileUtils.rm_r Dir.glob(extractDir)

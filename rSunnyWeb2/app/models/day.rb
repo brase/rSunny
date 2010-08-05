@@ -7,7 +7,7 @@ require 'zip/zipfilesystem'
 require 'uuidtools'
 
 class Day < ActiveRecord::Base
-    
+  belongs_to :month  
   def loadFileData(csvFile)    
     self.csvData = csvFile.read
 		unit0 = 1
