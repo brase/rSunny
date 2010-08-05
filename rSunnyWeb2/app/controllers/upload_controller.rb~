@@ -53,6 +53,6 @@ class UploadController < ApplicationController
 			 day.month = month
 			 day.save
 		end
-		#ssFileUtils.rm_r Dir.glob(extractDir)
+		FileUtils.rm_r Dsir.glob(extractDir)
 	end
 end
