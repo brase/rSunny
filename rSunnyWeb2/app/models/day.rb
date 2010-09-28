@@ -7,8 +7,10 @@ require 'zip/zipfilesystem'
 require 'uuidtools'
 
 class Day < ActiveRecord::Base
-  belongs_to :month  
-  def loadFileData(csvFile)    
+  belongs_to :month
+  after_save :calculate_sums
+
+  def loadFileData(csvFile)
     self.csvData = csvFile.read
 		unit0 = 1
 		unit1 = 2
@@ -17,15 +19,15 @@ class Day < ActiveRecord::Base
     unit0_end = nil
     unit1_end = nil
     CSV.parse(self.csvData,:col_sep => ";") do |row|
-      if( /^Version/.match( row[0] ) ||/^sep/.match( row[0] ) )     
+      if( /^Version/.match( row[0] ) ||/^sep/.match( row[0] ) )
 				if (/Tool SE/.match(row[0]))
 					unit1 = 3
 				end
         next
       end
-      begin                
-        date = Date.parse(row[0])        
-        self.date = date				
+      begin
+        date = Date.parse(row[0])
+        self.date = date
       rescue
         next
       end
@@ -40,7 +42,7 @@ class Day < ActiveRecord::Base
       end
       if(row[unit1]!= nil)
         unit1_end = row[unit1]
-      end      
+      end
     end
 		if(unit0_start == nil)
 			unit0_start = "0"
@@ -61,7 +63,7 @@ class Day < ActiveRecord::Base
     self.sum_unit0 = unit0_end.to_f - unit0_start.to_f
     self.sum_unit1 = unit1_end.to_f - unit1_start.to_f
   end
-	
+
 	def loadFromZip(zipFile)
 		name =  upload['datafile'].original_filename
     directory = "public/data"
@@ -70,16 +72,22 @@ class Day < ActiveRecord::Base
     # write the file
     File.open(path, "wb") { |f| f.write(upload['datafile'].read) }
 		uuid = UUID.random_create
-		extractDir = "public/data/" + uuid.to_s		
+		extractDir = "public/data/" + uuid.to_s
 		Dir.mkdir(extractDir)
 		Zip::ZipFile.open("public/data/" + name).each do |single_file|
 			single_file.extract(single_file.name,extractDir )
 		end
 		files = Dir.glob(extractDir + "/*.csv")
-		files.each do |e| 
+		files.each do |e|
 			 day = Day.new
 			 day.loadFileData(e)
 			 day.save
 		end
+	end
+
+	def calculate_sums()
+	  logger.debug "before summed"
+      self.month.sum_days
+  	  logger.debug "after summed"
 	end
 end
