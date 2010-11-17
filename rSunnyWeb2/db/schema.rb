@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805191516) do
+ActiveRecord::Schema.define(:version => 20101117103309) do
 
   create_table "days", :force => true do |t|
     t.date     "date"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20100805191516) do
     t.float    "sum_unit0"
     t.float    "sum_unit1"
     t.integer  "month_id"
+    t.text     "chart_array0"
+    t.text     "chart_array1"
   end
 
   add_index "days", ["month_id"], :name => "index_days_on_month_id"

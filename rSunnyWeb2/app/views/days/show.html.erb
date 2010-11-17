@@ -1,6 +1,37 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+	  array = <%=h @day.chart_array0 %>;
+	  $.jqplot.config.enablePlugins = true;
+		$.jqplot('chartdiv', [<%=h @day.chart_array0 %>],{
+      title:'Shadow Options', 
+      series:[
+          {
+              showMarker:false, 
+              lineWidth:1, 
+          }
+      ],
+		  axes:{
+		    xaxis:{
+		      renderer:$.jqplot.DateAxisRenderer,
+		      tickOptions:{formatString:'%s'}
+		      }		      
+	      }
+		});
+	});
+</script>
+<div id="chartdiv" style="height:400px;width:300px; "></div>
+<br />
+<br />
 <p>
   <b>Date:</b>
   <%=h @day.date %>
+</p>
+
+<p>
+	<b>ChartArrays:</b>
+	<%=h @day.chart_array0 %>
+	<br/>
+	<%=h @day.chart_array1 %>
 </p>
 
 <p>

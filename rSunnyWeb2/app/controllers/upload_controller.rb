@@ -54,7 +54,7 @@ class UploadController < ApplicationController
 			 day.month = month
 			 day.save
 		end
-		logger.log "delete Dir"
+		logger.debug "delete Dir"
 		FileUtils.rm_r Dir.glob(extractDir)
 	end
 end
